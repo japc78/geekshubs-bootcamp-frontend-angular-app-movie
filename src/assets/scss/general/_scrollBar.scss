@@ -1,0 +1,30 @@
+@mixin scrollBar() {
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: $scrollbar-with;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #e1e1e1;
+
+    &:hover,
+    &:active {
+      background: #d4d4d4;
+    }
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+
+    &:hover {
+      background: #b3b3b3;
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      background-color: #999999;
+    }
+  }
+}

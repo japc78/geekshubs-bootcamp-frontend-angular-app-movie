@@ -1,0 +1,34 @@
+// General
+  $bodyColor            : $white;
+  $textColor            : $darkGrey;
+  $textBoldColor        : $color1;
+  $baseColor            : $color1;
+  $borderColor          : lighten($baseColor, 60%);
+  $borderRadius         : 7px;
+
+  $baseFont             : 'Roboto', sans-serif;
+  $condensedFont        : 'Roboto Condensed', sans-serif;
+  $baseFont             : 'Roboto', sans-serif;
+  $baseFontSize         : 14;
+  $baseLineHeight       : 1.2em;
+  $baseFontWeight       : normal;
+
+// Margenes
+  $blockSpace           :.5rem;
+  $generalMargin        : $blockSpace * 2;
+  $generalMarginBottom  : $generalMargin * 2;
+  $generalPadding       : $blockSpace;
+  $generalPaddingDouble : $generalPadding *2;
+
+// Scroll
+  $scrollbar-with       : 5px;
+
+// Grid
+  $layoutMinWith        : 360px;
+  $gridGap              : $generalPadding*2;
+  $minWithAutoCol       : 180px;
+
+// NavBar
+  $navBarBgColor: #2F495E;
+  $navBarColor: $white;
+  $navBarHeight: 50px;

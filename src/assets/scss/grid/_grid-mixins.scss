@@ -1,0 +1,13 @@
+@mixin col($col: 1) {
+  grid-template-columns: repeat($col, 1fr);
+  gap: $gridGap;
+
+  @if $col == 1 {
+    gap: 0;
+  }
+}
+
+@mixin autoCol($withColumn: $minWithAutoCol) {
+  grid-template-columns: repeat(auto-fill, minmax($withColumn, 1fr));
+  gap: $gridGap;
+}
