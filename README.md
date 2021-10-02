@@ -1,4 +1,6 @@
-# AppMovie
+# GeeksHubs - Frontend Angular - App Movie
+
+Retro final App Movie del [BootCamp Frontend Angular](https://bootcamp.geekshubsacademy.com/online/frontend-angular/) 05/2021 en [GeeksHubs Academy]
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
