@@ -1,0 +1,17 @@
+.main-header{
+  align-items: center;
+  display: flex;
+  gap: $gridGap;
+  height: 50px;
+  padding: $generalPaddingDouble;
+
+  .logo{
+    display: flex;
+    height: 100%;
+    img {
+      object-fit: fill;
+      object-position: center center;
+    }
+
+  }
+}

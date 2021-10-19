@@ -1,0 +1,8 @@
+.main-menu {
+  border:1px solid red;
+  ul {
+    display: flex;
+    align-items: center;
+    gap: $gridGap;
+  }
+}
