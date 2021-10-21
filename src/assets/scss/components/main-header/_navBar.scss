@@ -24,21 +24,26 @@
     }
 
     li {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      text-align: center;
-      gap: $gap;
+      a {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        gap: $gap;
 
-      .txt {
-        font-size: .9em;
-        font-family: $condensedFont;
-        font-weight: 700;
+        .txt {
+          font-size: .85em;
+          font-family: $condensedFont;
+          font-weight: 700;
+        }
       }
 
       @include medium() {
-        .txt {
-          font-size: 1em;
+        a {
+          .txt {
+            font-size: 1em;
+          }
         }
 
         .fi {
