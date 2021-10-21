@@ -1,0 +1,33 @@
+.main-header {
+  height: 70px;
+  padding: unit(4);
+  display: flex;
+  justify-content: space-between;
+
+
+  @include medium() {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-content: center;
+    padding: unit(8);
+  }
+
+  .logo{
+    overflow:hidden;
+    max-width: 150px;
+    margin-right: unit(8);
+
+    @include medium() {
+      max-width: none;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .icons {
+    display: flex;
+    // gap: $gap;
+  }
+}

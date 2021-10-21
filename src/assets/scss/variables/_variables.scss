@@ -8,13 +8,12 @@
 
   $baseFont             : 'Roboto', sans-serif;
   $condensedFont        : 'Roboto Condensed', sans-serif;
-  $baseFont             : 'Roboto', sans-serif;
-  $baseFontSize         : 14;
+  $baseFontSize         : 16;
   $baseLineHeight       : 1.2em;
   $baseFontWeight       : normal;
 
 // Margenes
-  $blockSpace           :.5rem;
+  $blockSpace           : .5rem;
   $generalMargin        : $blockSpace * 2;
   $generalMarginBottom  : $generalMargin * 2;
   $generalPadding       : $blockSpace;
@@ -25,10 +24,13 @@
 
 // Grid
   $layoutMinWith        : 360px;
-  $gridGap              : $generalPadding*2;
+  $gap                  : $generalPadding*2;
   $minWithAutoCol       : 180px;
 
 // NavBar
   $navBarBgColor: #2F495E;
   $navBarColor: $white;
   $navBarHeight: 50px;
+
+// Icon
+  $iconSize: 24;

@@ -1,0 +1,9 @@
+@use "sass:math";
+
+@function unit($numBlocks) {
+  @return $numBlocks * $blockSpace;
+}
+
+@function size($size) {
+  @return #{math.div($size, 10)}rem;
+}

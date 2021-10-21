@@ -1,0 +1,63 @@
+.main-menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: $generalPaddingDouble;
+
+  @include medium() {
+    height: 100%;
+    position: relative;
+  }
+
+  ul {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+
+    @include medium() {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: $gap;
+    }
+
+    li {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      text-align: center;
+      gap: $gap;
+
+      .txt {
+        font-size: .9em;
+        font-family: $condensedFont;
+        font-weight: 700;
+      }
+
+      @include medium() {
+        .txt {
+          font-size: 1em;
+        }
+
+        .fi {
+          display: none;
+        }
+
+        &:last-child {
+          align-self: flex-end;
+          margin-left: auto;
+
+          .fi {
+              display: flex;
+          }
+
+          .txt {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
