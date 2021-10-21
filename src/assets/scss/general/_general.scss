@@ -19,7 +19,7 @@ html {
 
 body {
   width: 100%;
-  font-family: $condensedFont;
+  font-family: $baseFont;
   @include font-size($baseFontSize);
   font-weight: $baseFontWeight;
   line-height: $baseLineHeight;
@@ -27,6 +27,14 @@ body {
   cursor: default;
 }
 
-.action {
+.event {
   cursor: pointer;
+}
+
+.image {
+  overflow: hidden;
+  line-height: 0;
+  img {
+    width: 100%;
+  }
 }
