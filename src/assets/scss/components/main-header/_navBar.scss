@@ -3,17 +3,21 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: $generalPaddingDouble;
+  min-width: $layoutMinWith;
+  height: 70px;
 
   @include medium() {
     height: 100%;
     position: relative;
+    min-width: auto;
+    padding-right: $generalPaddingDouble;
   }
 
   ul {
-    height: 70px;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
 
     @include medium() {
       height: 100%;
