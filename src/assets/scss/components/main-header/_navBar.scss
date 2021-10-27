@@ -3,17 +3,21 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: $generalPaddingDouble;
+  min-width: $layoutMinWith;
+  height: 70px;
 
   @include medium() {
     height: 100%;
     position: relative;
+    min-width: auto;
+    padding-right: $generalPaddingDouble;
   }
 
   ul {
-    height: 70px;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
 
     @include medium() {
       height: 100%;
@@ -24,21 +28,26 @@
     }
 
     li {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      text-align: center;
-      gap: $gap;
+      a {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        gap: $gap;
 
-      .txt {
-        font-size: .9em;
-        font-family: $condensedFont;
-        font-weight: 700;
+        .txt {
+          font-size: .85em;
+          font-family: $condensedFont;
+          font-weight: 700;
+        }
       }
 
       @include medium() {
-        .txt {
-          font-size: 1em;
+        a {
+          .txt {
+            font-size: 1em;
+          }
         }
 
         .fi {
