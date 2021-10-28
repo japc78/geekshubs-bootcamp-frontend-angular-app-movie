@@ -1,0 +1,15 @@
+<swiper class="slide-show">
+    <ng-template *ngFor="let movie of movies" swiperSlide>
+      <div class="image">
+        <img src="{{imagePath}}{{movie.backdrop_path}}" alt="{{movie.title}}">
+      </div>
+      <div class="info">
+
+        <img *ngIf="movie.logo" src="{{imagePath}}{{movie.logo}}" alt="{{movie.title}}">
+        <span>{{movie.title}}</span><br>
+        <span>{{movie.id}}</span><br>
+        <span>Release date{{movie.release_date}}</span><br>
+        <span>Status{{movie.status}}</span><br>
+      </div>
+    </ng-template>
+</swiper>

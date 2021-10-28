@@ -6,6 +6,7 @@ import { SeriesComponent } from './series/series.component';
 import { LatestComponent } from './latest/latest.component';
 import { SearchComponent } from './search/search.component';
 import { ErrorComponent } from './error/error.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -19,7 +20,8 @@ import { ErrorComponent } from './error/error.component';
     ErrorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   exports: [
     HomeComponent

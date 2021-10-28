@@ -55,11 +55,11 @@
         }
 
         &:last-child {
-          align-self: flex-end;
+          align-self: center;
           margin-left: auto;
 
           .fi {
-              display: flex;
+            display: flex;
           }
 
           .txt {

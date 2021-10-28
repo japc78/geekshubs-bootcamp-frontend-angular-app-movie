@@ -1,0 +1,55 @@
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+
+.swipper {
+  width: 100%;
+  min-height: 50%;
+
+}
+
+.swiper-slide {
+  // line-height: 300px;
+}
+
+.slide-show {
+  // height: 300px;
+  // border:1px solid red;
+
+  .swiper-slide {
+    position: relative;
+    z-index: 0;
+    // line-height: 300px;
+
+    .image {
+      position: relative;
+      z-index: 0;
+      line-height: 0;
+      overflow: hidden;
+      max-height: calc(100vh - #{$navBarHeightLarge});
+      height: 100%;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+
+    .info {
+      color: $black;
+      z-index: 999;
+
+      @include medium() {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+  }
+
+
+}
+
+
