@@ -5,6 +5,8 @@
   width: 100%;
   min-width: $layoutMinWith;
   height: 70px;
+  // TODO THEME
+  background-color: $white;
 
   @include medium() {
     height: 100%;

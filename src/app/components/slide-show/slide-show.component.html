@@ -9,10 +9,18 @@
         </div>
       </div>
       <div class="info">
-        <span>{{movie.title}}</span><br>
-        <span>{{movie.id}}</span><br>
-        <span>Release date{{movie.release_date}}</span><br>
-        <span>Status{{movie.status}}</span><br>
+        <h2 class="tit">{{movie.title}}</h2>
+        <!-- <ul>
+          <li class="original_tit"><span>Título original:</span> <small>{{movie.original_title}}</small></li>
+          <li class="id"><span>Identificador:</span> {{movie.id}}</li>
+          <li><span>Estreno:</span>  {{movie.release_date}}</li>
+        </ul> -->
+        <p class="overview">{{movie.overview}}</p>
+
+        <div class="action">
+          <button>Ver trailer</button>
+          <button>Mas informacion</button>
+        </div>
       </div>
     </ng-template>
 </swiper>

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/movie';
 import SwiperCore, { SwiperOptions } from 'swiper';
+import { Config } from '../../classes/Config';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class SlideShowComponent implements OnInit {
 
   @Input() movies: Movie[] = [];
 
-  imagePath: String = 'https://image.tmdb.org/t/p/original/'
+  imagePath: String = Config.IMAGE_URL;
 
   config: SwiperOptions = {
     slidesPerView: 3,

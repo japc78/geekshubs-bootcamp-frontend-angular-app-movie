@@ -42,7 +42,18 @@
       img {
         max-height: 60%;
         max-width: 50%;        // width: 50%;
+      }
 
+      @include medium() {
+        align-items: center;
+        justify-content: start;
+        padding-bottom: 0;
+        padding-left: unit(8);
+
+        img {
+          max-height: 40%;
+          max-width: 30%;        // width: 50%;
+        }
       }
     }
 
@@ -64,16 +75,35 @@
     .info {
       color: $black;
       z-index: 999;
+      padding: $generalPaddingDouble * 2;
+
+      .tit {
+        @include font-size(24);
+        font-weight: bold;
+        margin-bottom: $generalMarginBottom;
+        font-family: $condensedFont;
+        text-transform: uppercase;
+      }
+
+      ul {
+        padding: $generalPaddingDouble * 2;
+        @include font-size(14);
+        background-color: $lighterGrey;
+        margin-bottom: $generalMarginBottom;
+        border-radius: $borderRadius;
+
+        span {font-weight: bold;}
+        li {
+          margin: 0;
+        }
+      }
 
       @include medium() {
         position: absolute;
         bottom: 0;
       }
     }
-
   }
-
-
 }
 
 

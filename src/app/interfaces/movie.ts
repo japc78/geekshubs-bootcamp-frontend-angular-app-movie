@@ -14,6 +14,7 @@ export interface Movie {
   homepage:              string;
   id:                    number;
   imdb_id:               string;
+  logo:                  string;
   original_language:     string;
   original_title:        string;
   overview:              string;
@@ -28,26 +29,7 @@ export interface Movie {
   video:                 boolean;
   vote_average:          number;
   vote_count:            number;
-  logo:                  string;
 }
-
-export interface ImagesResponse {
-  backdrops: Backdrop[];
-  id:        number;
-  logos:     Backdrop[];
-  posters:   Backdrop[];
-}
-
-export interface Backdrop {
-  aspect_ratio: number;
-  height:       number;
-  iso_639_1:    null | string;
-  file_path:    string;
-  vote_average: number;
-  vote_count:   number;
-  width:        number;
-}
-
 
 export interface Dates {
   maximum: Date;
@@ -72,4 +54,3 @@ export enum OriginalLanguage {
   Fr = "fr",
   Ko = "ko",
 }
-
