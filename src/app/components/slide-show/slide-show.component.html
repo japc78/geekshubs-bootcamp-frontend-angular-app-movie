@@ -1,4 +1,4 @@
-<swiper class="slide-show" [config]="config" effect="fade">
+<swiper class="slide-show container" [config]="config" effect="fade">
     <ng-template *ngFor="let movie of movies" swiperSlide>
       <div class="top">
         <!-- <div class="video">
@@ -16,8 +16,8 @@
         <h2 class="name">{{movie.title || movie.name}}</h2>
         <p class="overview">{{movie.overview | truncate:[140]}}</p>
         <div class="action">
-          <button>Ver trailer</button>
-          <button>Mas informacion</button>
+          <div class="btn"><i class="fi fi-rr-play"></i> Ver trailer</div>
+          <div class="btn">Más informacion</div>
         </div>
       </div>
     </ng-template>
