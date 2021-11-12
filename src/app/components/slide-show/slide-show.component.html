@@ -13,8 +13,8 @@
         </div>
       </div>
       <div class="info">
-        <h2 class="tit">{{movie.title || movie.name}}</h2>
-        <p class="overview">{{movie.overview}}</p>
+        <h2 class="name">{{movie.title || movie.name}}</h2>
+        <p class="overview">{{movie.overview | truncate:[140]}}</p>
         <div class="action">
           <button>Ver trailer</button>
           <button>Mas informacion</button>
