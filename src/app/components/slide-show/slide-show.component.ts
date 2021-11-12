@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Movie } from '../../interfaces/movie';
-import SwiperCore, { SwiperOptions } from 'swiper';
+import SwiperCore, { SwiperOptions, Navigation } from 'swiper';
 import { Config } from '../../classes/Config';
+import { Media } from '../../interfaces/media';
 
+SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-slide-show',
@@ -12,16 +13,16 @@ import { Config } from '../../classes/Config';
 })
 export class SlideShowComponent implements OnInit {
 
-  @Input() movies: Movie[] = [];
+  @Input() movies: Media[] = [];
 
   imagePath: String = Config.IMAGE_URL;
+  videoPath: String = Config.VIDEO_URL;
+
 
   config: SwiperOptions = {
-    slidesPerView: 3,
-    spaceBetween: 50,
+    slidesPerView: 1,
     navigation: true,
     pagination: { clickable: true },
-    scrollbar: { draggable: true },
   };
 
   onSwiper(swiper:any) {

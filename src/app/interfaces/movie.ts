@@ -14,7 +14,7 @@ export interface Movie {
   homepage:              string;
   id:                    number;
   imdb_id:               string;
-  logo:                  string;
+  logo:                  string | null;
   original_language:     string;
   original_title:        string;
   overview:              string;
@@ -27,6 +27,7 @@ export interface Movie {
   tagline:               string;
   title:                 string;
   video:                 boolean;
+  trailer:               string | null;
   vote_average:          number;
   vote_count:            number;
 }

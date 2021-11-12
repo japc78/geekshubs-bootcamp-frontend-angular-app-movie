@@ -1,6 +1,10 @@
-<swiper class="slide-show">
+<swiper class="slide-show" [config]="config" effect="fade">
     <ng-template *ngFor="let movie of movies" swiperSlide>
       <div class="top">
+        <!-- <div class="video">
+          <object data="https://youtube.com/embed/Ith2WetKXlg?autoplay=1&controls=0&showinfo=0&autohide=1">
+          </object>
+        </div> -->
         <div class="image">
           <img src="{{imagePath}}{{movie.backdrop_path}}" alt="{{movie.title}}">
         </div>
@@ -9,14 +13,8 @@
         </div>
       </div>
       <div class="info">
-        <h2 class="tit">{{movie.title}}</h2>
-        <!-- <ul>
-          <li class="original_tit"><span>Título original:</span> <small>{{movie.original_title}}</small></li>
-          <li class="id"><span>Identificador:</span> {{movie.id}}</li>
-          <li><span>Estreno:</span>  {{movie.release_date}}</li>
-        </ul> -->
+        <h2 class="tit">{{movie.title || movie.name}}</h2>
         <p class="overview">{{movie.overview}}</p>
-
         <div class="action">
           <button>Ver trailer</button>
           <button>Mas informacion</button>
