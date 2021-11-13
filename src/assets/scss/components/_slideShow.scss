@@ -6,8 +6,8 @@
     position: absolute;
     z-index: 9;
     top: auto;
-    bottom: $generalPaddingDouble;
-    right: $generalPaddingDouble;
+    bottom: unit(4);
+    right: unit(4);
     left: auto;
     cursor: pointer;
     color: $white;
@@ -21,16 +21,15 @@
 
     &::after {
       font-family: $iconFamily;
+      text-shadow: 1px 2px 3px black;
       @include font-size(20);
     }
 
     &[class*="prev"] {
-      right: 35px;
+      right: unit(10);;
       &::after {
         content: "\f10e"
       }
-
-
     }
 
     &[class*="next"] {
@@ -40,8 +39,26 @@
     }
 
     &[class*="disabled"] {
-      color:$color1darken;
+      opacity: .1;
       transform: scale(1);
+
+      &:hover {
+        color: $white;
+        opacity: .1;
+      }
+    }
+
+    @include medium {
+      bottom: unit(8);
+      right: unit(8);
+
+      &::after {
+        @include font-size(32);
+      }
+
+      &[class*="prev"] {
+        right: unit(16);
+      }
     }
   }
 
@@ -108,13 +125,18 @@
         position: relative;
         transform: translateY(0);
         padding-bottom: 0;
-        max-width: 100%;
-        max-height: 50%;
+        max-width: 60%;
+        max-height: 30%;
 
         img {
           max-width: 100%;
           max-height: 100%;
         }
+      }
+
+      @include large() {
+        max-width: 80%;
+        max-height: 40%;
       }
     }
 
@@ -166,9 +188,30 @@
         line-height: 1.2em;
       }
 
+      .tags {
+        display: flex;
+        gap: unit(2);
+      }
+
+      .tag {
+        // background-color: rgba($white, .5);
+        border: 1px dashed rgba($white, .5);
+        border-radius: $borderRadius;
+        padding: unit(.5) unit(1);
+        margin-bottom: unit(1);
+        display: inline-block;
+        @include font-size(12);
+        font-style: italic;
+        color: rgba($white, .5)
+      }
+
       .overview {
         color: $white;
         margin-bottom: $generalMargin;
+
+        @include medium() {
+          margin-bottom: $generalMarginBottom;
+        }
       }
 
       ul {
@@ -190,18 +233,30 @@
 
         .btn {
           border-color: $white;
+          background-color: rgba($black, .1);
           color: $white;
           display: flex;
           align-items: center;
-          gap: $generalPadding;
+          gap: unit(2);
+          box-shadow: 1px 1px 3px rgba(black,.8);
 
           .fi {
             @include font-size(18);
           }
 
           &:hover {
-            border-color: $black;
-            color: $black;
+            border-color: $color1darken;
+            background-color: rgba($color1,.8);
+          }
+        }
+
+        @include medium() {
+          gap: unit(4);
+
+          .btn {
+            font-size: 1.4em;
+            background-color: rgba($black, .5);
+            padding: unit(2) unit(4);
           }
         }
       }
