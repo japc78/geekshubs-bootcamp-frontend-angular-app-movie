@@ -1,0 +1,10 @@
+.carousel {
+  display: grid;
+  .swiper-slide {
+    max-width: 150px;
+  }
+
+  .swiper-wrapper {
+    gap: unit(2);
+  }
+}
