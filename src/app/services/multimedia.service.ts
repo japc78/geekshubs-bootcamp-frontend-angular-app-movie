@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ImagesResponse } from '../interfaces/image';
 import { VideosResponse } from '../interfaces/video';
-import { Config } from './../classes/Config';
+import { Config } from '../classes/Config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MediaService {
+export class MultimediaService {
 
   private params = {
     api_key : Config.API_KEY,

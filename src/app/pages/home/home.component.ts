@@ -4,7 +4,7 @@ import { switchMap, map, filter } from 'rxjs/operators';
 import { MoviesService } from '../../services/movies.service';
 import { Movie, MovieResponse } from '../../interfaces/movie';
 import { Media } from '../../interfaces/media';
-import { MediaService } from '../../services/media.service';
+import { MultimediaService } from '../../services/multimedia.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   public medias: Media[] = [];
   constructor(
     private moviesService: MoviesService,
-    private mediaService: MediaService,
+    private multiMediaService: MultimediaService,
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
         map( movies => {
           movies.forEach(movie => {
-            this.mediaService.getImages(movie.id, movie.media_type)
+            this.multiMediaService.getImages(movie.id, movie.media_type)
             .subscribe( resp => {
 
               if (resp.logos.length === 1){
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
         map( movies => {
           movies.forEach(movie => {
-            this.mediaService.getVideos(movie.id, movie.media_type)
+            this.multiMediaService.getVideos(movie.id, movie.media_type)
             .subscribe( resp => {
               // console.log(resp);
 
