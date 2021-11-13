@@ -1,0 +1,16 @@
+.btn {
+  background: none;
+  border: 2px solid;
+  border-color: $black;
+  border-radius: $borderRadius;
+  padding: unit(1) unit(2);
+  transition: all .3s ease-in-out;
+  @include font-size(14);
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color1;
+    color: $color1;
+    transform: scale(1.05);
+  }
+}

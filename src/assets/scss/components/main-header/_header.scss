@@ -1,15 +1,19 @@
 .main-header {
-  height: 70px;
+  height: $navBarHeight;
   padding: unit(4);
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
 
   @include medium() {
+    height: $navBarHeightLarge;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-content: center;
-    padding: unit(8);
+    padding: unit(6);
   }
 
   .logo{

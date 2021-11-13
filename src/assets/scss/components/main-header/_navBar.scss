@@ -5,6 +5,8 @@
   width: 100%;
   min-width: $layoutMinWith;
   height: 70px;
+  // TODO THEME
+  background-color: $white;
 
   @include medium() {
     height: 100%;
@@ -55,11 +57,11 @@
         }
 
         &:last-child {
-          align-self: flex-end;
+          align-self: center;
           margin-left: auto;
 
           .fi {
-              display: flex;
+            display: flex;
           }
 
           .txt {
