@@ -18,8 +18,20 @@ export class CarouselComponent implements OnInit {
 
   config: SwiperOptions = {
     slidesPerView: 'auto',
+    spaceBetween: 16,
     navigation: true,
-    pagination: { clickable: true },
+    // width: 100,
+    // loop: true,
+    // slidesPerGroup:1,
+    // slidesPerGroupAuto: true,
+    // cssMode: true,
+
+    // pagination: { clickable: true },
+    // breakpoints: {
+    //   '1024': {
+    //     spaceBetween: 16,
+    //   }
+    // }
   };
 
   onSwiper(swiper:any) {

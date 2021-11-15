@@ -1,10 +1,75 @@
 .carousel {
   display: grid;
-  .swiper-slide {
-    max-width: 150px;
+  padding: unit(3);
+  position: relative;
+  width: 100%;
+
+  [class*="swiper-button"] {
+    position: absolute;
+    z-index: 9;
+    top: 50%;
+    left: auto;
+    cursor: pointer;
+    color: $white;
+    transition: all .3s ease-in-out;
+    transform: scale(1);
+
+    &:hover {
+      color:$black;
+      transform: scale(1.5);
+    }
+
+    &::after {
+      font-family: $iconFamily;
+      text-shadow: 1px 2px 3px black;
+      @include font-size(20);
+    }
+
+    &[class*="prev"] {
+      left: unit(2);
+      &::after {
+        content: "\f10e"
+      }
+    }
+
+    &[class*="next"] {
+      right: unit(2);;
+      &::after {
+        content: "\f10f"
+      }
+    }
+
+    &[class*="disabled"] {
+      opacity: .1;
+      transform: scale(1);
+
+      &:hover {
+        color: $white;
+        opacity: .1;
+      }
+    }
+
+    @include medium {
+      &::after {
+        @include font-size(32);
+      }
+    }
   }
 
   .swiper-wrapper {
-    gap: unit(2);
+    // gap: unit(4);
+    // width: 100%;
+  }
+
+  .swiper-slide {
+    max-width: 100px;
+
+    @include medium() {
+      max-width: 125px;
+    }
+
+    @include medium() {
+      max-width: 150px;
+    }
   }
 }

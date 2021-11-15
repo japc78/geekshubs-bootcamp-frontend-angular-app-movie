@@ -1,12 +1,14 @@
-<swiper class="carousel container" [config]="config" effect="fade">
-  <ng-template *ngFor="let item of items" swiperSlide>
-      <div class="image">
-        <img src="{{imagePath}}{{item.poster_path}}" alt="{{item.title}}">
-      </div>
-      <div class="tags">
-        <div class="tag type">{{item.media_type | mediaType | uppercase}}</div>
-        <div class="tag rating">IMDB {{item.vote_average}}/10</div>
-      </div>
-  </ng-template>
-</swiper>
+<div class="carousel">
+  <swiper class="container" [config]="config" effect="fade">
+    <ng-template *ngFor="let item of items" swiperSlide>
+        <div class="image">
+          <img src="{{imagePath}}{{item.poster_path}}" alt="{{item.title}}">
+        </div>
+        <div class="tags">
+          <div class="tag type">{{item.media_type | mediaType | uppercase}}</div>
+          <div class="tag rating">IMDB {{item.vote_average}}/10</div>
+        </div>
+    </ng-template>
+  </swiper>
+</div>
 
