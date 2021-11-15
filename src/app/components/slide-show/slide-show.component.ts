@@ -18,7 +18,6 @@ export class SlideShowComponent implements OnInit {
   imagePath: String = Config.IMAGE_URL;
   videoPath: String = Config.VIDEO_URL;
 
-
   config: SwiperOptions = {
     slidesPerView: 1,
     navigation: true,

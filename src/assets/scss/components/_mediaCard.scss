@@ -1,0 +1,54 @@
+.media-card {
+  position: relative;
+  // border:1px solid red;
+  height: 100%;
+  width: 100%;
+
+  .image {
+    height: 100%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    font-style: italic;
+    display: flex;
+    background-color: rgba($color1dark, .8);;
+    border-bottom-left-radius: $borderRadius;
+    overflow: hidden;
+
+    span {
+      @include font-size(11);
+    }
+
+    .rating {
+      padding: 1px 3px;
+      top:0;
+      color: $white;
+      right: 0;
+      min-width: 17px;
+      text-align: center;
+      // border-bottom-left-radius: $borderRadius;
+      // border-style: solid;
+      // border-color: rgba($color1darken, .5);
+    }
+
+    .type {
+      bottom: 0;
+      background-color: rgba($color1darken, .7);
+      padding: 3px 5px;
+      line-height: 1em;
+      color: $white;
+    }
+  }
+}

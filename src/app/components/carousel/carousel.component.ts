@@ -14,8 +14,6 @@ export class CarouselComponent implements OnInit {
 
   @Input() items: Media[] = [];
 
-  imagePath: String = Config.IMAGE_URL;
-
   config: SwiperOptions = {
     slidesPerView: 'auto',
     spaceBetween: 16,
