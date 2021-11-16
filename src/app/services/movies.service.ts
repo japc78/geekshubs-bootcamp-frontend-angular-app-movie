@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { MovieResponse, Movie } from '../interfaces/movie';
 import { MediaResponse } from '../interfaces/media';
 import { Config } from '../classes/Config';
+import { Tv } from '../interfaces/tv';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class MoviesService {
 
   private params = {
     api_key : Config.API_KEY,
-    region: 'ES'
+    region: 'ES',
+    language: 'es-Es'
   }
 
   constructor(private httpClient: HttpClient) { }
@@ -33,5 +35,11 @@ export class MoviesService {
   getTrending(): Observable<MediaResponse> {
     const url = Config.BASE_URL + "trending/all/week"
     return this.httpClient.get<MediaResponse>(url, { params: this.params});
+  }
+
+
+  getMedia(type: string, id: Number): Observable<Movie | Tv> {
+    const url = `${Config.BASE_URL}${type}/${id}`;
+    return this.httpClient.get<Movie | Tv>(url, { params: this.params});
   }
 }
