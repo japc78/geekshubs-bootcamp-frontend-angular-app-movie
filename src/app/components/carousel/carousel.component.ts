@@ -3,25 +3,33 @@ import SwiperCore, { SwiperOptions, Navigation } from 'swiper';
 import { Config } from '../../classes/Config';
 import { Media } from '../../interfaces/media';
 
-SwiperCore.use([Navigation]);
 
 @Component({
-  selector: 'app-slide-show',
-  templateUrl: './slide-show.component.html',
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
   styles: [
   ]
 })
-export class SlideShowComponent implements OnInit {
+export class CarouselComponent implements OnInit {
 
-  @Input() movies: Media[] = [];
-
-  imagePath: String = Config.IMAGE_URL;
-  videoPath: String = Config.VIDEO_URL;
+  @Input() items: Media[] = [];
 
   config: SwiperOptions = {
-    slidesPerView: 1,
+    slidesPerView: 'auto',
+    spaceBetween: 16,
     navigation: true,
-    pagination: { clickable: true },
+    // width: 100,
+    // loop: true,
+    // slidesPerGroup:1,
+    // slidesPerGroupAuto: true,
+    // cssMode: true,
+
+    // pagination: { clickable: true },
+    // breakpoints: {
+    //   '1024': {
+    //     spaceBetween: 16,
+    //   }
+    // }
   };
 
   onSwiper(swiper:any) {
@@ -36,4 +44,5 @@ export class SlideShowComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }

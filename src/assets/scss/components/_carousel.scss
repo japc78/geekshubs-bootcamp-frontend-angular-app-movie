@@ -1,0 +1,89 @@
+.carousel {
+  display: grid;
+  padding: unit(3);
+  position: relative;
+  width: 100%;
+
+  [class*="swiper-button"] {
+    align-items: center;
+    background-color: rgba($white, .7);
+    color: $black;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    line-height: 1em;
+    padding: 0 unit(3);
+    position: absolute;
+    top: 0;
+    transition: all .3s ease-in-out;
+    z-index: 9;
+
+    &::after {
+      font-family: $iconFamily;
+      text-shadow: 1px 2px 3px black;
+      transition: transform .3s ease-in-out;
+      @include font-size(20);
+    }
+
+    &:hover {
+      color:$color1;
+      &::after {
+        transform: scale(1.5);
+      }
+    }
+
+    &[class*="prev"] {
+      left: 0;
+      &::after {
+        content: "\f10e"
+      }
+    }
+
+    &[class*="next"] {
+      right: 0;
+      &::after {
+        content: "\f10f"
+      }
+    }
+
+    &[class*="disabled"] {
+      opacity: 1;
+
+      &:hover {
+        color: $white;
+        opacity: .1;
+      }
+
+      &[class*="next"] {
+        right: -100px;
+      }
+
+      &[class*="prev"] {
+        left: -100px;
+      }
+    }
+
+    @include medium {
+      &::after {
+        @include font-size(32);
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    // gap: unit(4);
+    align-items: stretch;
+  }
+
+  .swiper-slide {
+    max-width: 100px;
+
+    @include medium() {
+      max-width: 125px;
+    }
+
+    @include medium() {
+      max-width: 150px;
+    }
+  }
+}
