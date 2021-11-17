@@ -1,1 +1,24 @@
-<p>media works!</p>
+<div class="row" *ngIf="media">
+  <header>
+    <div class="image">
+      <img src="{{imagePath}}{{media.backdrop_path}}" alt="{{media.title}}">
+    </div>
+    <div class="info">
+      <div class="rating">{{ media.vote_average }}</div>
+      <h1>{{ media.title || media.name }}</h1>
+      <div>{{ media.original_title || media.original_name }}</div>
+      <div>
+        <span> {{ media.runtime }}</span>
+        <span>{{ year(media.release_date) }}</span>
+      </div>
+      <p>{{ media.overview }}</p>
+    </div>
+  </header>
+  <div class="details">
+    <h2>Detalles</h2>
+
+    <h3>Dirigida:</h3>
+    <p>{{ getDirector }}</p>
+
+  </div>
+</div>

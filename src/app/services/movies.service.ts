@@ -6,6 +6,7 @@ import { MediaResponse } from '../interfaces/media';
 import { Config } from '../classes/Config';
 import { Tv } from '../interfaces/tv';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Credits } from '../interfaces/credits';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,10 @@ export class MoviesService {
   getMedia(type: string, id: Number): Observable<Movie & Tv> {
     const url = `${Config.BASE_URL}${type}/${id}`;
     return this.httpClient.get<Movie & Tv>(url, this.opts);
+  }
+
+  getCredits(type: string, id: number): Observable<Credits> {
+    const url = `${Config.BASE_URL}${type}/${id}/credits`;
+    return this.httpClient.get<Credits>(url, this.opts);
   }
 }
