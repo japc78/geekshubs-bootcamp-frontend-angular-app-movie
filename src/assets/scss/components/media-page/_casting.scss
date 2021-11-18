@@ -1,0 +1,45 @@
+.casting {
+  .row {
+    @include autoCol(100px);
+  }
+}
+
+.cast-card {
+  position: relative;
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  border-radius: $borderRadius;
+  overflow: hidden;
+  // border:1px solid red;
+
+  .image {
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  .info {
+    height: 100%;
+    padding: unit(1);
+    display: flex;
+    flex-direction: column;
+    background-color: $lightGrey;
+    overflow: hidden;
+
+    .name {
+      @include font-size(14);
+    }
+
+    .character {
+      font-style: italic;
+      @include font-size(12);
+      line-height: 1.2em;
+    }
+  }
+}

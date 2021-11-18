@@ -1,0 +1,44 @@
+header {
+  position: relative;
+
+  padding-left: 30%;
+
+  .info {
+    left: 0;
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    width: 75%;
+    // background: rgb(0,0,0);
+    // background: linear-gradient(90deg, rgba($white,1) 50%, rgba($black,0) 100%, rgba($black,0) 100%);
+    background: linear-gradient(
+      90deg,
+      rgba($white,1) 50%,
+      rgba($white,0) 100%,
+      rgba($black,0) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 unit(4);
+
+    .name {
+      @include font-size(18);
+      font-weight: bold;
+      text-transform: capitalize;
+      color: $black
+    }
+
+    .rating {
+      font-style: italic;
+      color: $color1;
+      @include font-size(12);
+    }
+
+    .year {
+      margin-bottom: unit(1);
+      @include font-size(14);
+    }
+  }
+}

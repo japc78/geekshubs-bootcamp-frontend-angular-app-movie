@@ -51,7 +51,7 @@ export class MediaComponent implements OnInit {
   }
 
   get getCast(): Cast[] {
-    return this.credits.cast;
+    return this.credits.cast.filter(item => item.profile_path);
   }
 
   get getGenres(): Genre[] {

@@ -1,0 +1,19 @@
+.details {
+  padding: unit(4);
+
+  .original-name {
+    color: $grey;
+    font-style: italic;
+  }
+
+  .genres {
+    // border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1em;
+    gap: unit(.5);
+    text-transform: lowercase;
+    max-width: 50%;
+    @include font-size(12);
+  }
+}
