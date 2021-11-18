@@ -69,4 +69,9 @@ export class MoviesService {
     const url = `${Config.BASE_URL}${type}/${id}/credits`;
     return this.httpClient.get<Credits>(url, this.opts);
   }
+
+  getSimilar(type: string, id: number): Observable<MediaResponse> {
+    const url = `${Config.BASE_URL}${type}/${id}/similar`;
+    return this.httpClient.get<MediaResponse>(url, this.opts)
+  }
 }

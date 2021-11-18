@@ -11,14 +11,29 @@
         <span> {{ media.runtime }}</span>
         <span>{{ year(media.release_date) }}</span>
       </div>
+      <ng-container *ngIf="getGenres">
+        <div class="genres">
+          <span *ngFor="let genre of getGenres">{{genre.name}}</span>
+        </div>
+      </ng-container>
       <p>{{ media.overview }}</p>
     </div>
   </header>
   <div class="details">
     <h2>Detalles</h2>
 
-    <h3>Dirigida:</h3>
-    <p>{{ getDirector }}</p>
+    <ng-container *ngIf="getDirector">
+      <h3>Dirigida:</h3>
+      <p>{{ getDirector }}</p>
+    </ng-container>
 
+    <ng-container *ngIf="getCast">
+      <h3>Reparto</h3>
+      <app-cast-card *ngFor="let item of getCast" [cast]="item"> </app-cast-card>
+    </ng-container>
   </div>
+
+  <ng-container *ngIf="getSimilar.length > 0">
+    <app-carousel [items]="getSimilar"></app-carousel>
+  </ng-container>
 </div>
