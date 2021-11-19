@@ -45,6 +45,8 @@
   </div>
 
   <ng-container *ngIf="getSimilar.length > 0">
-    <app-carousel [items]="getSimilar"></app-carousel>
+    <div class="container">
+      <app-carousel [items]="getSimilar"></app-carousel>
+    </div>
   </ng-container>
 </div>

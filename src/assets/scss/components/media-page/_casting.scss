@@ -1,6 +1,7 @@
 .casting {
   .row {
     @include autoCol(100px);
+    gap: unit(3);
   }
 }
 
@@ -9,8 +10,8 @@
   display: grid;
   height: 100%;
   grid-template-rows: auto 1fr;
-  border-radius: $borderRadius;
-  overflow: hidden;
+  // border-radius: $borderRadius;
+  // overflow: hidden;
   // border:1px solid red;
 
   .image {
@@ -33,13 +34,15 @@
     overflow: hidden;
 
     .name {
-      @include font-size(14);
+      line-height: 1.2em;
+      @include font-size(12);
+      font-weight: bold;
     }
 
     .character {
-      font-style: italic;
-      @include font-size(12);
       line-height: 1.2em;
+      font-style: italic;
+      @include font-size(11);
     }
   }
 }
