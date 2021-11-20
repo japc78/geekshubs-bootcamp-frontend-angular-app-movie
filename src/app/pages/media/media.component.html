@@ -31,7 +31,7 @@
   </div>
 
   <div class="credits container">
-    <ng-container *ngIf="getCrew">
+    <ng-container *ngIf="getCrew.length > 0">
       <div class="casting">
         <h3>Grupo técnico principal</h3>
         <div class="row">
@@ -40,7 +40,7 @@
       </div>
     </ng-container>
 
-    <ng-container *ngIf="getCast">
+    <ng-container *ngIf="getCast.length > 0">
       <div class="casting">
         <h3>Reparto principal</h3>
         <div class="row">
