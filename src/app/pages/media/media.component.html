@@ -12,8 +12,10 @@
       <div class="btn play"><i class="fi fi-rr-play"></i> Ver trailer</div>
     </div>
   </header>
+
   <div class="details container">
     <h2>Detalles</h2>
+
     <small class="original-name">{{ media.original_title || media.original_name }}</small>
     <ng-container *ngIf="getGenres">
       <div class="genres">
@@ -29,14 +31,18 @@
   </div>
 
   <div class="credits container">
-    <ng-container *ngIf="getDirector">
-      <h3>Dirigida:</h3>
-      <p>{{ getDirector }}</p>
+    <ng-container *ngIf="getCrew">
+      <div class="casting">
+        <h3>Grupo técnico principal</h3>
+        <div class="row">
+          <app-cast-card *ngFor="let item of getCrew" [cast]="item"> </app-cast-card>
+        </div>
+      </div>
     </ng-container>
 
     <ng-container *ngIf="getCast">
       <div class="casting">
-        <h3>Reparto</h3>
+        <h3>Reparto principal</h3>
         <div class="row">
           <app-cast-card *ngFor="let item of getCast" [cast]="item"> </app-cast-card>
         </div>
@@ -44,8 +50,9 @@
     </ng-container>
   </div>
 
-  <ng-container *ngIf="getSimilar.length > 0">
+  <ng-container *ngIf="getSimilar">
     <div class="container">
+      <h2>Similares</h2>
       <app-carousel [items]="getSimilar"></app-carousel>
     </div>
   </ng-container>

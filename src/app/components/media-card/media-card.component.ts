@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Config } from 'src/app/classes/Config';
 import { Media } from 'src/app/interfaces/media';
 
@@ -15,13 +15,14 @@ export class MediaCardComponent implements OnInit {
 
   imagePath: String = Config.IMAGE_URL;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
   }
 
   onMediaClick(media: Media) {
-    console.log(media);
-    this.router.navigate([media.media_type, media.id])
+    const type = media.media_type || this.activateRoute.snapshot.params.type;
+    this.router.navigate([type, media.id])
   }
 }
