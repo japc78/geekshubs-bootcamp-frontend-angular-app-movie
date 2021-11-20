@@ -25,10 +25,10 @@ header {
       @include font-size(24);
       font-weight: bold;
       text-transform: capitalize;
-      // color: $black;
+      color: $black;
       margin-bottom: 0;
       line-height: 1em;
-      text-shadow: 1px 1px 1px rgba($black,.75);
+      // text-shadow: 1px 1px 1px rgba($black,.75);
     }
 
     .rating {
