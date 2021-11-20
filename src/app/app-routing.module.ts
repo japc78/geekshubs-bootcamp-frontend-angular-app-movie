@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'latest', component: LatestComponent },
   { path: 'search', component: SearchComponent },
   { path: 'search', component: SearchComponent },
-  { path: ':type/:id', component: MediaComponent },
+  { path: ':type/:id', component: MediaComponent, pathMatch: 'full' },
   { path: '404', component: ErrorComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', redirectTo: '404' },
