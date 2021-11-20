@@ -3,6 +3,10 @@
     @include autoCol(100px);
     gap: unit(3);
   }
+
+  @include medium() {
+    padding: 0 unit(8);
+  }
 }
 
 .cast-card {

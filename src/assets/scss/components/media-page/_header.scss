@@ -22,11 +22,13 @@ header {
     line-height: 1em;
 
     .name {
-      @include font-size(18);
+      @include font-size(24);
       font-weight: bold;
       text-transform: capitalize;
-      color: $black;
+      // color: $black;
       margin-bottom: 0;
+      line-height: 1em;
+      text-shadow: 1px 1px 1px rgba($black,.75);
     }
 
     .rating {
@@ -38,6 +40,36 @@ header {
     .year {
       margin-bottom: unit(1);
       @include font-size(14);
+    }
+
+    @include small() {
+      width: 60%;
+      .name {
+        @include font-size(36);
+      }
+    }
+
+    @include medium() {
+      gap: unit(1);
+      width: 60%;
+      padding: 0 unit(10);
+      .name {
+        @include font-size(48);
+      }
+    }
+
+    @include large() {
+      .name {
+        width: 90%;
+        @include font-size(80);
+      }
+    }
+  }
+
+  @include large() {
+    .image {
+      max-height: 600px;
+      overflow: hidden;
     }
   }
 }

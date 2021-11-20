@@ -2,4 +2,10 @@
   @import './header';
   @import './casting';
   @import './details';
+
+  @include medium() {
+    .similar {
+      padding: unit(4) unit(10);
+    }
+  }
 }
