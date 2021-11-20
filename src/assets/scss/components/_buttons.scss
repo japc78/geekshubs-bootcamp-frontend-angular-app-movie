@@ -3,14 +3,23 @@
   border: 2px solid;
   border-color: $black;
   border-radius: $borderRadius;
-  padding: unit(1) unit(2);
+  padding: unit(.5) unit(1);
   transition: all .3s ease-in-out;
+  display: flex;
+  gap: unit(1);
   @include font-size(14);
+  box-shadow: 1px 1px 3px rgba(black,.8);
   cursor: pointer;
 
   &:hover {
-    border-color: $color1;
-    color: $color1;
+    border-color: $color1darken;
+    background-color: rgba($color1,.8);
     transform: scale(1.05);
+  }
+
+  &.play {
+    .fi {
+      @include font-size(18);
+    }
   }
 }

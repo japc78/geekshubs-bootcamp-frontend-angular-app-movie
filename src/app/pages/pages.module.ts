@@ -7,6 +7,7 @@ import { LatestComponent } from './latest/latest.component';
 import { SearchComponent } from './search/search.component';
 import { ErrorComponent } from './error/error.component';
 import { ComponentsModule } from '../components/components.module';
+import { MediaComponent } from './media/media.component';
 
 
 
@@ -17,7 +18,8 @@ import { ComponentsModule } from '../components/components.module';
     SeriesComponent,
     LatestComponent,
     SearchComponent,
-    ErrorComponent
+    ErrorComponent,
+    MediaComponent
   ],
   imports: [
     CommonModule,

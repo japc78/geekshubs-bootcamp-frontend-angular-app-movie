@@ -1,0 +1,33 @@
+.details {
+  .original-name {
+    color: $grey;
+    font-style: italic;
+  }
+
+  .genres {
+    // border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1em;
+    gap: unit(.5);
+    text-transform: lowercase;
+    @include font-size(12);
+    margin-bottom: $generalMargin;
+  }
+
+  @include medium() {
+    padding: unit(4) unit(10);
+    max-width: 1024px;
+    .overview {
+      column-count: 2;
+    }
+  }
+
+  @include large() {
+    .overview {
+      p {
+        font-size: 1.2em;
+      }
+    }
+  }
+}

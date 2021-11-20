@@ -1,0 +1,59 @@
+<div class="row media-page" *ngIf="media">
+  <header>
+    <div class="image">
+      <img src="{{imagePath}}{{media.backdrop_path}}" alt="{{media.title}}">
+    </div>
+    <div class="info">
+      <div class="rating">IMDB {{ media.vote_average }}</div>
+      <h1 class="name">{{ media.title || media.name }}</h1>
+      <div class="year">
+        <span>{{ year(media.release_date) }}</span> - <span> {{ media.runtime }} min</span>
+      </div>
+      <div class="btn play"><i class="fi fi-rr-play"></i> Ver trailer</div>
+    </div>
+  </header>
+
+  <div class="details container">
+    <h2>Detalles</h2>
+
+    <small class="original-name">{{ media.original_title || media.original_name }}</small>
+    <ng-container *ngIf="getGenres">
+      <div class="genres">
+        <span *ngFor="let genre of getGenres">{{genre.name}}</span>
+      </div>
+    </ng-container>
+
+    <div class="overview">
+      <p>
+        {{ media.overview }}
+      </p>
+    </div>
+  </div>
+
+  <div class="credits container">
+    <ng-container *ngIf="getCrew.length > 0">
+      <div class="casting">
+        <h3>Grupo técnico principal</h3>
+        <div class="row">
+          <app-cast-card *ngFor="let item of getCrew" [cast]="item"> </app-cast-card>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="getCast.length > 0">
+      <div class="casting">
+        <h3>Reparto principal</h3>
+        <div class="row">
+          <app-cast-card *ngFor="let item of getCast" [cast]="item"> </app-cast-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="getSimilar">
+    <div class="similar container">
+      <h2>Similares</h2>
+      <app-carousel [items]="getSimilar"></app-carousel>
+    </div>
+  </ng-container>
+</div>

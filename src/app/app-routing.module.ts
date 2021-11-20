@@ -6,6 +6,7 @@ import { SeriesComponent } from './pages/series/series.component';
 import { LatestComponent } from './pages/latest/latest.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { MediaComponent } from './pages/media/media.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,13 +15,14 @@ const routes: Routes = [
   { path: 'latest', component: LatestComponent },
   { path: 'search', component: SearchComponent },
   { path: 'search', component: SearchComponent },
+  { path: ':type/:id', component: MediaComponent, pathMatch: 'full' },
   { path: '404', component: ErrorComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
