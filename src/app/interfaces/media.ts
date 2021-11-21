@@ -6,27 +6,27 @@ export interface MediaResponse {
 }
 
 export interface Media {
-  release_date?:     Date;
-  adult?:            boolean;
-  backdrop_path:     string;
-  genre_ids:         number[];
-  vote_count:        number;
-  original_language: OriginalLanguage;
-  original_title?:   string;
-  poster_path:       string;
-  video?:            boolean;
-  id:                number;
-  vote_average:      number;
-  title?:            string;
-  overview:          string;
-  popularity:        number;
-  media_type:        MediaType;
-  first_air_date?:   Date;
-  name?:             string;
-  original_name?:    string;
-  origin_country?:   string[];
-  logo?:             string | null;
-  trailer?:          string | null;
+  release_date?:      Date;
+  adult?:             boolean;
+  backdrop_path:      string;
+  genre_ids:          number[];
+  vote_count:         number;
+  original_language?: OriginalLanguage;
+  original_title?:    string;
+  poster_path:        string;
+  video?:             boolean;
+  id:                 number;
+  vote_average:       number;
+  title?:             string;
+  overview:           string;
+  popularity:         number;
+  media_type:         MediaType;
+  first_air_date?:    Date;
+  name?:              string;
+  original_name?:     string;
+  origin_country?:    string[];
+  logo?:              string | null;
+  trailer?:           string | null;
 }
 
 export enum MediaType {
@@ -37,4 +37,9 @@ export enum MediaType {
 export enum OriginalLanguage {
   En = "en",
   Ko = "ko",
+  Es = "es",
+  Fr = "fr",
+  De = "de",
+  It = "it",
+  Zn = 'zn'
 }

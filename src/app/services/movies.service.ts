@@ -21,7 +21,7 @@ export class MoviesService {
 
   // private params: HttpParams;
   private opts = { params: new HttpParams({
-    fromString: `api_key=${Config.API_KEY}&language=es-ES&region: "ES"`
+    fromString: `api_key=${Config.API_KEY}&language=es-ES&region="ES"`
   })};;
 
   constructor(private httpClient: HttpClient) {
@@ -73,5 +73,10 @@ export class MoviesService {
   getSimilar(type: string, id: number): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}${type}/${id}/similar`;
     return this.httpClient.get<MediaResponse>(url, this.opts)
+  }
+
+  findMedia(query: string): Observable<MediaResponse> {
+    const url = `${Config.BASE_URL}search/multi?query=${query}`
+    return this.httpClient.get<MediaResponse>(url, this.opts );
   }
 }

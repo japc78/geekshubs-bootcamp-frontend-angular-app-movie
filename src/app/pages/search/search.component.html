@@ -1,1 +1,22 @@
-<p>search works!</p>
+<div class="container">
+  <form (ngSubmit)="search()">
+    <div class="box">
+      <input
+        [(ngModel)]="term"
+        autocomplete="false"
+        type="search"
+        name="term"
+        id=""
+        placeholder="Titulo/nombre película o serie"
+      />
+    </div>
+  </form>
+  <ng-template ngIf="results.length > 0">
+    <div class="row">
+      <app-media-card *ngFor="let item of results" [item]="item"></app-media-card>
+    </div>
+  </ng-template>
+  <div class="alert alert-danger" *ngIf="isResults">
+    Ups! no encontramos nada, hazlo más fácil!!
+  </div>
+</div>

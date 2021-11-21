@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { SlideShowComponent } from './slide-show/slide-show.component';
 import { SwiperModule } from 'swiper/angular';
 import { PipesModule } from '../pipes/pipes.module';
@@ -12,17 +14,19 @@ import { CastCardComponent } from './cast-card/cast-card.component';
     SlideShowComponent,
     CarouselComponent,
     MediaCardComponent,
-    CastCardComponent
+    CastCardComponent,
   ],
   exports: [
     SlideShowComponent,
     CarouselComponent,
-    CastCardComponent
+    CastCardComponent,
+    MediaCardComponent
   ],
   imports: [
     CommonModule,
     SwiperModule,
-    PipesModule
+    PipesModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }
