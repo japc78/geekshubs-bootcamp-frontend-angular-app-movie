@@ -1,22 +1,31 @@
-<div class="container">
+<div class="container search">
   <form (ngSubmit)="search()">
     <div class="box">
       <input
         [(ngModel)]="term"
-        autocomplete="false"
+        (input)="keyPressed()"
+        autocomplete="off"
         type="search"
         name="term"
         id=""
-        placeholder="Titulo/nombre película o serie"
+        placeholder="Título o nombre película o serie"
       />
+
+      <ul class="suggestions" *ngIf="showSuggestions">
+        <ng-container *ngFor="let item of termSuggestions">
+          <li (click)="searchSuggestion(item)">{{item}}</li>
+        </ng-container>
+      </ul>
     </div>
+
+    <div class="alert alert-warning" *ngIf="isResults">
+      Ups! no encontramos nada, hazlo más fácil!!
+    </div>
+
   </form>
   <ng-template ngIf="results.length > 0">
-    <div class="row">
+    <div class="row list">
       <app-media-card *ngFor="let item of results" [item]="item"></app-media-card>
     </div>
   </ng-template>
-  <div class="alert alert-danger" *ngIf="isResults">
-    Ups! no encontramos nada, hazlo más fácil!!
-  </div>
 </div>
