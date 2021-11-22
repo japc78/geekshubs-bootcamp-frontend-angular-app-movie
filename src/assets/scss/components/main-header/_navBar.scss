@@ -9,6 +9,7 @@
   background-color: $white;
 
   @include medium() {
+    background-color: transparent;
     height: 100%;
     position: relative;
     min-width: auto;
