@@ -1,5 +1,5 @@
 <div class="carousel">
-  <swiper class="container" [config]="config" effect="fade">
+  <swiper [config]="config" effect="fade">
     <ng-template *ngFor="let item of items" swiperSlide>
       <app-media-card [item]="item"></app-media-card>
     </ng-template>
