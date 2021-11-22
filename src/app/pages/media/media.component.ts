@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MoviesService } from '../../services/movies.service';
+import { MediaService } from '../../services/media.service';
 import { Movie } from '../../interfaces/movie';
 import { Tv, Genre } from '../../interfaces/tv';
 import { Config } from '../../classes/Config';
@@ -25,7 +25,7 @@ export class MediaComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private movieService: MoviesService) { }
+    private movieService: MediaService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

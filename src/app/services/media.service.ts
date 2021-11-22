@@ -11,7 +11,7 @@ import { Credits } from '../interfaces/credits';
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class MediaService {
 
   // private params = {
   //   api_key : Config.API_KEY,

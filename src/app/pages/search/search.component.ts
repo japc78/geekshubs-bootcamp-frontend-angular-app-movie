@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, map, mapTo } from 'rxjs/operators';
 import { Media } from '../../interfaces/media';
-import { MoviesService } from '../../services/movies.service';
+import { MediaService } from '../../services/media.service';
 
 @Component({
   selector: 'app-search',
@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   termSuggestions: string[] = [];
 
 
-  constructor(private movieService: MoviesService) { }
+  constructor(private movieService: MediaService) { }
 
   ngOnInit(): void {
     this.debouncer

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { switchMap, map, filter } from 'rxjs/operators';
 
-import { MoviesService } from '../../services/movies.service';
+import { MediaService } from '../../services/media.service';
 import { Movie, MovieResponse } from '../../interfaces/movie';
 import { Media } from '../../interfaces/media';
 import { MultimediaService } from '../../services/multimedia.service';
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   public medias: Media[] = [];
   constructor(
-    private moviesService: MoviesService,
+    private moviesService: MediaService,
     private multiMediaService: MultimediaService,
   ) { }
 
