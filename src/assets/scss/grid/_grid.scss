@@ -3,7 +3,7 @@
 
 .container {
   width: 100%;
-  padding: $generalPadding *2;
+  padding: unit(4);
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   min-width: $layoutMinWith;

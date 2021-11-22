@@ -1,0 +1,50 @@
+.box {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+
+  input {
+    width: 100%;
+    border: 0;
+    padding: unit(2) unit(4);
+    border-radius: $borderRadius * 3;
+    font-family: $condensedFont;
+    background-color: $lighterGrey;
+    transition: box-shadow .3s ease-in-out;
+    margin-bottom: 0;
+
+    &:focus {
+      outline: none;
+      border: 0;
+      box-shadow: 0px 0px 5px rgba($color1, .7);
+    }
+  }
+
+  span {
+    // border:1px solid red;
+    top:0;
+    font-size: 1.2em;
+  }
+
+  label {
+    display: inline;
+    font-weight: normal;
+    width: 100%;
+  }
+
+  &.icon {
+    input {
+      padding-left: 30px;
+
+    }
+    span {
+      position: absolute;
+      top:0;
+      padding: 0 $generalPadding;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+}

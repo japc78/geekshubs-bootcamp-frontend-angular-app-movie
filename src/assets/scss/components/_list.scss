@@ -1,0 +1,11 @@
+.list {
+  @include autoCol(100px);
+
+  @include small() {
+    @include autoCol(125px);
+  }
+  @include medium() {
+    @include autoCol(150px);
+    gap: $gap *2;
+  }
+}
