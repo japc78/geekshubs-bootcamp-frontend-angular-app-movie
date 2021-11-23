@@ -1,28 +1,28 @@
 <swiper class="slide-show container" [config]="config" effect="fade">
-    <ng-template *ngFor="let movie of movies" swiperSlide>
+    <ng-template *ngFor="let item of items" swiperSlide>
       <div class="top">
         <!-- <div class="video">
           <object data="https://youtube.com/embed/Ith2WetKXlg?autoplay=1&controls=0&showinfo=0&autohide=1">
           </object>
         </div> -->
         <div class="image">
-          <img src="{{imagePath}}{{movie.backdrop_path}}" alt="{{movie.title}}">
+          <img src="{{imagePath}}{{item.backdrop_path}}" alt="{{item.title}}">
         </div>
       </div>
       <div class="bottom">
         <div class="logo">
-          <img *ngIf="movie.logo" src="{{imagePath}}{{movie.logo}}" alt="{{movie.title}}">
+          <img *ngIf="item.logo" src="{{imagePath}}{{item.logo}}" alt="{{item.title}}">
         </div>
         <div class="info">
           <header>
             <div class="tags">
-              <div class="tag type">{{movie.media_type | mediaType | uppercase}}</div>
-              <div class="tag rating">IMDB {{movie.vote_average}}/10</div>
+              <div class="tag type">{{item.media_type | mediaType | uppercase}}</div>
+              <div class="tag rating">IMDB {{item.vote_average}}/10</div>
             </div>
-            <h2 class="name">{{movie.title || movie.name}}</h2>
+            <h2 class="name">{{item.title || item.name}}</h2>
           </header>
           <p class="overview">
-            {{movie.overview | truncate:[140]}} <br/>
+            {{item.overview | truncate:[140]}} <br/>
           </p>
           <div class="action">
             <div class="btn"><i class="fi fi-rr-play"></i> Ver trailer</div>
