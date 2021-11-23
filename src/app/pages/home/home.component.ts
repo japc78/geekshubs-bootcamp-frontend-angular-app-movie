@@ -12,7 +12,7 @@ import { MultimediaService } from '../../services/multimedia.service';
 })
 export class HomeComponent implements OnInit {
 
-  public medias: Media[] = [];
+  public items: Media[] = [];
   constructor(
     private moviesService: MediaService,
     private multiMediaService: MultimediaService,
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
 
       .subscribe( resp => {
         console.log(resp)
-        this.medias = resp;
+        this.items = resp;
       }
     );
 
