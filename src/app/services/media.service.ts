@@ -7,6 +7,8 @@ import { Config } from '../classes/Config';
 import { Tv } from '../interfaces/tv';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Credits } from '../interfaces/credits';
+import { MediaType } from '../classes/MediaType';
+import { TimeWindow } from '../classes/TimeWindow';
 
 @Injectable({
   providedIn: 'root'
@@ -54,8 +56,10 @@ export class MediaService {
   }
 
 
-  getTrending(): Observable<MediaResponse> {
-    const url = Config.BASE_URL + "trending/all/week"
+  getTrending(mediaType: MediaType, timeWindow: TimeWindow): Observable<MediaResponse> {
+    const url = `${Config.BASE_URL}trending/${mediaType}/${timeWindow}`
+    console.log(url);
+
     return this.httpClient.get<MediaResponse>(url, this.opts);
   }
 

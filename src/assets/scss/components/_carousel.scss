@@ -1,7 +1,23 @@
+
+.listCarousel {
+  display: flex;
+  flex-direction: column;
+  gap: unit(8);
+
+  @include medium {
+
+    padding: unit(4);
+  }
+}
+
 .carousel {
   display: grid;
   position: relative;
   width: 100%;
+
+  &::nth-last-child() {
+    margin-bottom: 0;
+  }
 
   [class*="swiper-button"] {
     align-items: center;

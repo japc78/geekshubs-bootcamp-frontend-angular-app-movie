@@ -14,7 +14,6 @@
   justify-self: center;
   align-content: start;
   margin: 0 auto;
-  margin-bottom: $generalMarginBottom;
 
   &.col2 {
     @include col(2);

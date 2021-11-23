@@ -13,6 +13,7 @@ import { Media } from '../../interfaces/media';
 export class CarouselComponent implements OnInit {
 
   @Input() items: Media[] = [];
+  @Input() title!: string;
 
   config: SwiperOptions = {
     slidesPerView: 'auto',
