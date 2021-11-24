@@ -10,6 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { ErrorComponent } from './error/error.component';
 import { ComponentsModule } from '../components/components.module';
 import { MediaComponent } from './media/media.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MediaComponent } from './media/media.component';
     LatestComponent,
     SearchComponent,
     ErrorComponent,
-    MediaComponent
+    MediaComponent,
+    CatalogueComponent
   ],
   imports: [
     CommonModule,
