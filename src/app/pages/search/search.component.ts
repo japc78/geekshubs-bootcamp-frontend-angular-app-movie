@@ -15,6 +15,8 @@ export class SearchComponent implements OnInit {
   term!: string;
   results!: Media[];
   isResults: boolean = false;
+
+  // NOTE Para lanzar las sugerencias
   debouncer: Subject<string> = new Subject;
   showSuggestions: boolean = false;
   termSuggestions: string[] = [];
@@ -23,7 +25,9 @@ export class SearchComponent implements OnInit {
   constructor(private movieService: MediaService) { }
 
   ngOnInit(): void {
+
     this.debouncer
+    // Tiempo de retardo para buscar la sugerencia del texto introducido
     .pipe( debounceTime(300))
     .subscribe( value => {
       // console.log('debouncer', value);
