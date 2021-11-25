@@ -7,9 +7,7 @@ import { Config } from '../classes/Config';
 import { Tv } from '../interfaces/tv';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Credits } from '../interfaces/credits';
-import { MediaType } from '../classes/MediaType';
-import { TimeWindow } from '../classes/TimeWindow';
-
+import { MediaType, TimeWindow } from '../classes/Config';
 @Injectable({
   providedIn: 'root'
 })
@@ -69,18 +67,27 @@ export class MediaService {
     return this.httpClient.get<Movie & Tv>(url, this.opts);
   }
 
+
   getCredits(type: string, id: number): Observable<Credits> {
     const url = `${Config.BASE_URL}${type}/${id}/credits`;
     return this.httpClient.get<Credits>(url, this.opts);
   }
+
 
   getSimilar(type: string, id: number): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}${type}/${id}/similar`;
     return this.httpClient.get<MediaResponse>(url, this.opts)
   }
 
+
   findMedia(query: string): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}search/multi?query=${query}`
     return this.httpClient.get<MediaResponse>(url, this.opts );
+  }
+
+
+  getCatalogue(mediaType: MediaType, query: String): Observable<MediaResponse> {
+    const url = `${Config.BASE_URL}discover/${mediaType}`
+    return this.httpClient.get<MediaResponse>(url, this.opts);
   }
 }
