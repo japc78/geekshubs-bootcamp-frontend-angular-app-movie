@@ -1,1 +1,7 @@
-<p>catalogue works!</p>
+<div class="container">
+  <ng-template ngIf="items.length > 0">
+    <div #catalogueMedia class="row list">
+      <app-media-card *ngFor="let item of items" [item]="item"></app-media-card>
+    </div>
+  </ng-template>
+</div>
