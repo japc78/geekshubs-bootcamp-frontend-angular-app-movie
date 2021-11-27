@@ -1,4 +1,7 @@
 <div class="catalogue container">
+  <div class="row">
+    <app-select-genres></app-select-genres>
+  </div>
   <ng-template ngIf="items.length > 0">
     <div class="row list">
       <app-media-card *ngFor="let item of items" [item]="item"></app-media-card>

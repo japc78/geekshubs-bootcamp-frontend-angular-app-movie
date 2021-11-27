@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MediaService } from '../../services/media.service';
 import { Movie } from '../../interfaces/movie';
-import { Tv, Genre } from '../../interfaces/tv';
+import { Tv } from '../../interfaces/tv';
 import { Config, MediaType } from '../../classes/Config';
 import { Credits, Cast } from '../../interfaces/credits';
 import { Media } from '../../interfaces/media';
+import { Genre } from '../../interfaces/Genre';
 
 @Component({
   selector: 'app-media',

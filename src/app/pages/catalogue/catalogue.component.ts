@@ -41,8 +41,6 @@ export class CatalogueComponent implements OnInit {
   constructor(private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit', this.items.length);
-
     this.activatedRoute.params.subscribe(params => {
       this.mediaType = params.mediaType;
 
