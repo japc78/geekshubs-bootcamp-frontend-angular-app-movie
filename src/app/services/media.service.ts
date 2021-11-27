@@ -10,6 +10,7 @@ import { Credits } from '../interfaces/credits';
 import { MediaType, TimeWindow } from '../classes/Config';
 import { IQuery } from '../interfaces/Query';
 import { Movie } from '../interfaces/movie';
+import { Genre, GenreResponse } from '../interfaces/Genre';
 @Injectable({
   providedIn: 'root'
 })
@@ -90,5 +91,12 @@ export class MediaService {
           this.cataloguePage += 1
           this.loading = false;})
       ) ;
+  }
+
+
+  getGenres(mediaType: MediaType): Observable<Genre[]> {
+    const url = `${Config.BASE_URL}genre/${mediaType}/list`
+    return this.httpClient.get<GenreResponse>(url, {params: this.params})
+      .pipe(map(resp => resp.genres));
   }
 }
