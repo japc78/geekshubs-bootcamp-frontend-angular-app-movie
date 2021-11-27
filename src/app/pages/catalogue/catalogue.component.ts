@@ -25,9 +25,17 @@ export class CatalogueComponent implements OnInit {
     // "vote_average.gte" : 8,
   };
 
+  // Infinite scroll
   @HostListener('window:scroll', ['$event'])
   onScroll() {
+    const scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop ) + 1300;
+    const scrollHeight = (document.documentElement.scrollHeight || document.body.scrollHeight);
 
+    if (scrollPosition > scrollHeight && !this.mediaService.IsLoading) {
+      this.mediaService.getCatalogue(this.mediaType).subscribe( items => {
+        this.items.push(...items);
+      });
+    }
   }
 
   constructor(private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
@@ -39,23 +47,22 @@ export class CatalogueComponent implements OnInit {
       this.mediaType = params.mediaType;
 
       this.mediaService.getCatalogue(this.mediaType, this.query )
-      .pipe(
-        map( resp => {
-          this.totalPages = resp.total_pages;
-          resp.results = resp.results.filter(item => item.poster_path)
-          return resp
-        })
-        )
-        .subscribe( resp => {
-          this.items = resp.results;
+      // .pipe(
+      //   map( items => {
+      //     items = items.filter(item => item.poster_path)
+      //     return items
+      //   })
+      // )
+      .subscribe( items => {
+        this.items = items;
 
-          // Carga mas items si la lista no tiene scroll
-          this.isNotScroll().then(resp =>  {
-            if (resp) {
-              this.getMoreItems();
-            }
-          })
+        // Carga mas items si la lista no tiene scroll
+        this.isNotScroll().then( resp =>  {
+          if (resp) {
+            this.getMoreItems();
+          }
         })
+      })
       });
   }
 
@@ -65,7 +72,7 @@ export class CatalogueComponent implements OnInit {
       setTimeout(() => {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-        resolve((scrollHeight <= windowHeight && this.items.length > 0 ) ? true : false)
+        resolve((scrollHeight <= (windowHeight) && this.items.length > 0 ) ? true : false)
       }, 300);
     });
   }
@@ -73,15 +80,8 @@ export class CatalogueComponent implements OnInit {
 
   private getMoreItems(): void {
     this.mediaService.getCatalogue(this.mediaType, this.query)
-      .pipe(
-        map( resp => {
-          this.totalPages = resp.total_pages;
-          resp.results = resp.results.filter(item => item.poster_path)
-          return resp
-        })
-      )
-      .subscribe( resp => {
-        this.items.push(...resp.results);
+      .subscribe( items => {
+        this.items.push(...items);
       })
   }
 }

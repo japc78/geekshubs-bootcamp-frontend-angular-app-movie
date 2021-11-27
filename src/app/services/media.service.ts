@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http'
-import { Observable } from 'rxjs';
-import { MovieResponse, Movie } from '../interfaces/movie';
-import { MediaResponse } from '../interfaces/media';
+import { Observable, of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+
+import { MediaResponse, Media } from '../interfaces/media';
 import { Config, Language, Region } from '../classes/Config';
 import { Tv } from '../interfaces/tv';
 import { Credits } from '../interfaces/credits';
 import { MediaType, TimeWindow } from '../classes/Config';
-import { QueryMovie, IQuery } from '../interfaces/Query';
-import { tap } from 'rxjs/operators';
+import { IQuery } from '../interfaces/Query';
+import { Movie } from '../interfaces/movie';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,12 +21,17 @@ export class MediaService {
   }
 
   private cataloguePage = 1;
+  private loading: boolean = false;
 
   private params = new HttpParams({
     fromObject: { ...Object(this.commonQuery)}
   })
 
   constructor(private httpClient: HttpClient) { }
+
+  get IsLoading(): boolean {
+    return this.loading;
+  }
 
 
   getTrending(mediaType: MediaType, timeWindow: TimeWindow): Observable<MediaResponse> {
@@ -60,7 +66,11 @@ export class MediaService {
   }
 
 
-  getCatalogue(mediaType: MediaType, filters: IQuery): Observable<MediaResponse> {
+  getCatalogue(mediaType: MediaType, filters?: IQuery): Observable<Media[]> {
+
+    if (this.loading) return of([])
+
+    this.loading = true;
     const query: IQuery = {
       ...this.commonQuery,
       ...filters,
@@ -73,6 +83,12 @@ export class MediaService {
 
     const url = `${Config.BASE_URL}discover/${mediaType}`
     return this.httpClient.get<MediaResponse>(url, { params })
-      .pipe(tap(()=> {this.cataloguePage += 1})) ;
+      .pipe(
+        map( resp => resp.results.filter(item => item.poster_path)),
+
+        tap( ()=> {
+          this.cataloguePage += 1
+          this.loading = false;})
+      ) ;
   }
 }
