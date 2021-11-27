@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap, map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { MediaService } from '../../services/media.service';
-import { Movie, MovieResponse } from '../../interfaces/movie';
 import { Media } from '../../interfaces/media';
 import { MultimediaService } from '../../services/multimedia.service';
-import { MediaType } from 'src/app/classes/MediaType';
-import { TimeWindow } from 'src/app/classes/TimeWindow';
+import { MediaType , TimeWindow} from 'src/app/classes/Config';
 import { Observable } from 'rxjs';
 
 @Component({

@@ -7,6 +7,7 @@ import { LatestComponent } from './pages/latest/latest.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { MediaComponent } from './pages/media/media.component';
+import { CatalogueComponent } from './pages/catalogue/catalogue.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,8 +15,8 @@ const routes: Routes = [
   { path: 'series', component: SeriesComponent },
   { path: 'latest', component: LatestComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'search', component: SearchComponent },
-  { path: ':type/:id', component: MediaComponent, pathMatch: 'full' },
+  { path: 'catalogue/:mediaType', component: CatalogueComponent },
+  { path: ':mediaType/:id', component: MediaComponent, pathMatch: 'full' },
   { path: '404', component: ErrorComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: '**', redirectTo: '404' },

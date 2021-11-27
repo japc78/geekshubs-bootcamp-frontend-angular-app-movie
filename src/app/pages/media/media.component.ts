@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MediaService } from '../../services/media.service';
 import { Movie } from '../../interfaces/movie';
 import { Tv, Genre } from '../../interfaces/tv';
-import { Config } from '../../classes/Config';
+import { Config, MediaType } from '../../classes/Config';
 import { Credits, Cast } from '../../interfaces/credits';
 import { Media } from '../../interfaces/media';
 
@@ -19,7 +19,7 @@ export class MediaComponent implements OnInit {
   similar!: Media[];
   crew:Cast[] = [];
   cast:Cast[] = [];
-  private type! :string;
+  private mediaType! : MediaType;
   private id!: number;
 
   constructor(
@@ -30,19 +30,19 @@ export class MediaComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = params.id;
-      this.type = params.type;
-      // console.log(params);
-      this.movieService.getMedia(this.type, this.id).subscribe( media => {
+      this.mediaType = params.mediaType;
+
+      this.movieService.getMedia(this.mediaType, this.id).subscribe( media => {
         this.media = media;
         console.log(this.media);
       })
 
-      this.movieService.getCredits(this.type, this.id ).subscribe(credits => {
+      this.movieService.getCredits(this.mediaType, this.id ).subscribe(credits => {
         this.cast = credits.cast;
         this.crew = credits.crew;
       })
 
-      this.movieService.getSimilar(this.type, this.id ).subscribe(resp => {
+      this.movieService.getSimilar(this.mediaType, this.id ).subscribe(resp => {
         this.similar = resp.results
       })
     })

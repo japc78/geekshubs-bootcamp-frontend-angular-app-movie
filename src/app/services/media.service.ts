@@ -1,58 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http'
-import { Observable } from 'rxjs';
-import { MovieResponse, Movie } from '../interfaces/movie';
-import { MediaResponse } from '../interfaces/media';
-import { Config } from '../classes/Config';
-import { Tv } from '../interfaces/tv';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Credits } from '../interfaces/credits';
-import { MediaType } from '../classes/MediaType';
-import { TimeWindow } from '../classes/TimeWindow';
+import { Observable, of } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
+import { MediaResponse, Media } from '../interfaces/media';
+import { Config, Language, Region } from '../classes/Config';
+import { Tv } from '../interfaces/tv';
+import { Credits } from '../interfaces/credits';
+import { MediaType, TimeWindow } from '../classes/Config';
+import { IQuery } from '../interfaces/Query';
+import { Movie } from '../interfaces/movie';
 @Injectable({
   providedIn: 'root'
 })
 export class MediaService {
 
-  // private params = {
-  //   api_key : Config.API_KEY,
-  //   language: "es-ES",
-  //   region: "ES",
-  // }
+  private commonQuery: IQuery = {
+    api_key: Config.API_KEY,
+    language: Language.SPANISH,
+  }
 
-  // private params: HttpParams;
-  private opts = { params: new HttpParams({
-    fromString: `api_key=${Config.API_KEY}&language=es-ES&region="ES"`
-  })};;
+  private cataloguePage = 1;
+  private loading: boolean = false;
 
-  constructor(private httpClient: HttpClient) {
+  private params = new HttpParams({
+    fromObject: { ...Object(this.commonQuery)}
+  })
 
-    // FIXME Query params no funciona correctamente
-    // Al pasar lo parametros  como Objeto.
-    // this.params = new HttpParams({
-    //   fromObject: {
-    //       api_key : Config.API_KEY,
-    //       language: "es-ES",
-    //       region: "ES",
-    //     }
-    // });
+  constructor(private httpClient: HttpClient) { }
 
-    // this.params.append('api_key', Config.API_KEY);
-    // this.params.append('language', 'es-ES')
-    // this.params.append('region', 'ES')
-   }
-
-  getLatestTopRatedMovies(): Observable<MovieResponse> {
-    const date = new Date();
-    // const release_data_lte = new Date(date.getDate() - 15);
-    date.setDate(date.getDate()-15);
-    const release_data_lte = date.getMonth()
-    console.log('date', date)
-    console.log('aqui', release_data_lte)
-
-    const url = `${Config.BASE_URL}discover/movie?primary_release_date.lte=2021-11-01&with_release_type=3|4&vote_count.gte=10&sort_by=vote_count.desc&primary_release_date.gte=2021-10-15&include_video=true`
-    return this.httpClient.get<MovieResponse>(url, this.opts)
+  get IsLoading(): boolean {
+    return this.loading;
   }
 
 
@@ -60,27 +38,57 @@ export class MediaService {
     const url = `${Config.BASE_URL}trending/${mediaType}/${timeWindow}`
     console.log(url);
 
-    return this.httpClient.get<MediaResponse>(url, this.opts);
+    return this.httpClient.get<MediaResponse>(url,  { params: this.params});
   }
 
 
   getMedia(type: string, id: Number): Observable<Movie & Tv> {
     const url = `${Config.BASE_URL}${type}/${id}`;
-    return this.httpClient.get<Movie & Tv>(url, this.opts);
+    return this.httpClient.get<Movie & Tv>(url,  { params: this.params});
   }
+
 
   getCredits(type: string, id: number): Observable<Credits> {
     const url = `${Config.BASE_URL}${type}/${id}/credits`;
-    return this.httpClient.get<Credits>(url, this.opts);
+    return this.httpClient.get<Credits>(url,  { params: this.params});
   }
+
 
   getSimilar(type: string, id: number): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}${type}/${id}/similar`;
-    return this.httpClient.get<MediaResponse>(url, this.opts)
+    return this.httpClient.get<MediaResponse>(url, { params: this.params})
   }
+
 
   findMedia(query: string): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}search/multi?query=${query}`
-    return this.httpClient.get<MediaResponse>(url, this.opts );
+    return this.httpClient.get<MediaResponse>(url, { params: this.params} );
+  }
+
+
+  getCatalogue(mediaType: MediaType, filters?: IQuery): Observable<Media[]> {
+
+    if (this.loading) return of([])
+
+    this.loading = true;
+    const query: IQuery = {
+      ...this.commonQuery,
+      ...filters,
+      page: this.cataloguePage
+    };
+
+    let params = new HttpParams({
+      fromObject: { ...Object(query) }
+    });
+
+    const url = `${Config.BASE_URL}discover/${mediaType}`
+    return this.httpClient.get<MediaResponse>(url, { params })
+      .pipe(
+        map( resp => resp.results.filter(item => item.poster_path)),
+
+        tap( ()=> {
+          this.cataloguePage += 1
+          this.loading = false;})
+      ) ;
   }
 }

@@ -48,10 +48,3 @@ export interface ProductionCompany {
   name:           string;
   origin_country: string;
 }
-
-export enum OriginalLanguage {
-  En = "en",
-  Es = "es",
-  Fr = "fr",
-  Ko = "ko",
-}
