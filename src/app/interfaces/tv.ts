@@ -1,3 +1,5 @@
+import { Genre } from './Genre';
+
 export interface Tv {
   backdrop_path:        string;
   created_by:           CreatedBy[];
@@ -38,11 +40,6 @@ export interface CreatedBy {
   name:         string;
   gender:       number;
   profile_path: null;
-}
-
-export interface Genre {
-  id:   number;
-  name: string;
 }
 
 export interface TEpisodeToAir {
