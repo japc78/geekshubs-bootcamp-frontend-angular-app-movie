@@ -16,15 +16,15 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: $grey;
 
-    &:hover {
-      background: #b3b3b3;
-      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-    }
+    // &:hover {
+    //   background: $darkGrey;
+    //   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    // }
 
-    &:active {
-      background-color: #999999;
-    }
+    // &:active {
+    //   background-color: $darkGrey;
+    // }
   }
 }
