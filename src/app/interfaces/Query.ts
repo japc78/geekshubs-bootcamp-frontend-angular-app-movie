@@ -10,7 +10,7 @@ export interface IQuery {
   "vote_count.lte"?: number;
   "vote_average.gte"?: number;
   "vote_average.lte"?: number;
-  "with_genres"?: Genres;
+  "with_genres"?: number;
   "page"?: number;
 }
 

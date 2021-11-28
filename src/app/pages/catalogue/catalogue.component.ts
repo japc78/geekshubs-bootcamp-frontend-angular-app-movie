@@ -32,8 +32,10 @@ export class CatalogueComponent implements OnInit {
     const scrollHeight = (document.documentElement.scrollHeight || document.body.scrollHeight);
 
     if (scrollPosition > scrollHeight && !this.mediaService.IsLoading) {
-      this.mediaService.getCatalogue(this.mediaType).subscribe( items => {
+      this.mediaService.getCatalogue(this.mediaType, this.query).subscribe( items => {
         this.items.push(...items);
+        console.log('scroll', this.items);
+
       });
     }
   }
@@ -41,27 +43,32 @@ export class CatalogueComponent implements OnInit {
   constructor(private mediaService: MediaService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+
     this.activatedRoute.params.subscribe(params => {
+      console.log(params);
+
       this.mediaType = params.mediaType;
 
-      this.mediaService.getCatalogue(this.mediaType, this.query )
-      // .pipe(
-      //   map( items => {
-      //     items = items.filter(item => item.poster_path)
-      //     return items
-      //   })
-      // )
-      .subscribe( items => {
-        this.items = items;
+      this.activatedRoute.queryParams.subscribe(queryParams => {
+        this.query = {...queryParams };
 
-        // Carga mas items si la lista no tiene scroll
-        this.isNotScroll().then( resp =>  {
-          if (resp) {
-            this.getMoreItems();
-          }
+        this.mediaService.getCatalogue(this.mediaType, this.query )
+        .subscribe( items => {
+          this.items = items;
+
+          // Carga mas items si la lista no tiene scroll
+          this.isNotScroll().then( resp =>  {
+            if (resp) {
+              this.getMoreItems();
+            }
+          })
+
+          console.log(this.items);
+
         })
       })
-      });
+    });
   }
 
   // Check el scroll para carga o no mas items

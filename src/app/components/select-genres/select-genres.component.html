@@ -1,7 +1,9 @@
-<div>
-  <div class="selected">Todos los generos</div>
-  <ul>
-    <li (click)="selectGenre(0)">Todos los generos</li>
-    <li *ngFor="let genre of genres" (click)="selectGenre(genre.id)">{{ genre.name }}</li>
-  </ul>
+<div class="genres">
+  <span class="selected" (click)="showGenres()">Todos los generos</span>
+  <div class="genre-list" [ngClass]="{ 'active': isGenres }">
+    <ul>
+      <li (click)="selectGenre(0)">Todos los generos</li>
+      <li *ngFor="let genre of genres" (click)="selectGenre(genre.id)">{{ genre.name }}</li>
+    </ul>
+  </div>
 </div>

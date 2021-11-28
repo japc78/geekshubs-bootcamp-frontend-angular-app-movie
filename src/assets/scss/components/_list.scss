@@ -4,7 +4,6 @@
 
   @include small() {
     @include autoCol(125px);
-    padding: unit(4);
   }
   @include medium() {
     @include autoCol(150px);
