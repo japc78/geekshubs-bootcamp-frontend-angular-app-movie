@@ -4,12 +4,13 @@ import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { MediaResponse, Media } from '../interfaces/media';
-import { Config, Language, Region } from '../classes/Config';
+import { Config, Language, Region, SortBy } from '../classes/Config';
 import { Tv } from '../interfaces/tv';
 import { Credits } from '../interfaces/credits';
 import { MediaType, TimeWindow } from '../classes/Config';
 import { IQuery } from '../interfaces/Query';
 import { Movie } from '../interfaces/movie';
+import { Genre, GenreResponse } from '../interfaces/Genre';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,22 +18,16 @@ export class MediaService {
 
   private commonQuery: IQuery = {
     api_key: Config.API_KEY,
-    language: Language.SPANISH,
+    language: Language.SPANISH
   }
 
-  private cataloguePage = 1;
-  private loading: boolean = false;
+
 
   private params = new HttpParams({
     fromObject: { ...Object(this.commonQuery)}
   })
 
   constructor(private httpClient: HttpClient) { }
-
-  get IsLoading(): boolean {
-    return this.loading;
-  }
-
 
   getTrending(mediaType: MediaType, timeWindow: TimeWindow): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}trending/${mediaType}/${timeWindow}`
@@ -68,13 +63,12 @@ export class MediaService {
 
   getCatalogue(mediaType: MediaType, filters?: IQuery): Observable<Media[]> {
 
-    if (this.loading) return of([])
+    // if (this.loading) return of([])
 
-    this.loading = true;
+    // this.loading = true;
     const query: IQuery = {
       ...this.commonQuery,
       ...filters,
-      page: this.cataloguePage
     };
 
     let params = new HttpParams({
@@ -84,11 +78,14 @@ export class MediaService {
     const url = `${Config.BASE_URL}discover/${mediaType}`
     return this.httpClient.get<MediaResponse>(url, { params })
       .pipe(
-        map( resp => resp.results.filter(item => item.poster_path)),
+        map( resp => resp.results.filter(item => item.poster_path))
+      );
+  }
 
-        tap( ()=> {
-          this.cataloguePage += 1
-          this.loading = false;})
-      ) ;
+
+  getGenres(mediaType: MediaType): Observable<Genre[]> {
+    const url = `${Config.BASE_URL}genre/${mediaType}/list`
+    return this.httpClient.get<GenreResponse>(url, {params: this.params})
+      .pipe(map(resp => resp.genres));
   }
 }

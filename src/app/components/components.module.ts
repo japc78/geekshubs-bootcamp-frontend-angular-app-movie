@@ -8,6 +8,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { CarouselComponent } from './carousel/carousel.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { CastCardComponent } from './cast-card/cast-card.component';
+import { SelectGenresComponent } from './select-genres/select-genres.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,14 @@ import { CastCardComponent } from './cast-card/cast-card.component';
     CarouselComponent,
     MediaCardComponent,
     CastCardComponent,
+    SelectGenresComponent,
   ],
   exports: [
     SlideShowComponent,
     CarouselComponent,
     CastCardComponent,
-    MediaCardComponent
+    MediaCardComponent,
+    SelectGenresComponent,
   ],
   imports: [
     CommonModule,

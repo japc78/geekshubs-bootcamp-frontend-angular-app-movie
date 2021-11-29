@@ -1,0 +1,78 @@
+.catalogue {
+  .row {
+    @include small() {
+      padding: unit(4);
+    }
+  }
+}
+
+
+.genres {
+  position: relative;
+  z-index: 1;
+
+  .selected {
+    // border:1px solid red;
+    background-color: $lighterGrey;
+    padding: unit(2) unit(4);
+    border-radius: $borderRadius;
+    min-width: 30%;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .genre-list {
+    position: absolute;
+    width: 100%;
+    padding-top: unit(2);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    // transition: all .3s ease-in-out;
+    transition: opacity .3s ease-in-out, max-height .1s .3s ease-in-out;
+
+
+    &.active {
+      transition: max-height .1s ease-in-out, opacity .3s .2s ease-in-out;
+      max-height: 100vh;
+      opacity: 1;
+
+      li:hover{
+        color: $color1;
+      }
+    }
+
+    ul {
+      padding: unit(2) unit(4);
+      display: grid;
+      background-color: rgba($lightGrey, .95);
+      border-radius: $borderRadius;
+
+      li {
+        padding: unit(2) unit(4);
+        border-radius: $borderRadius;
+        cursor: pointer;
+        &:hover {
+          background-color: $lighterGrey;
+        }
+      }
+    }
+
+    @include small {
+      ul {
+        @include col(2);
+      }
+    }
+
+    @include medium {
+      max-width: 70%;
+      ul {
+        @include col(3);
+      }
+    }
+
+    @include large {
+      max-width: 50%;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { Genre } from './Genre';
+
 export interface MovieResponse {
   dates?:         Dates;
   page:          number;
@@ -35,11 +37,6 @@ export interface Movie {
 export interface Dates {
   maximum: Date;
   minimum: Date;
-}
-
-export interface Genre {
-  id:   number;
-  name: string;
 }
 
 export interface ProductionCompany {

@@ -1,0 +1,9 @@
+<div class="genres">
+  <span class="selected" (click)="showGenres()">{{selected.name}}</span>
+  <div class="genre-list" [ngClass]="{ 'active': active }">
+    <ul>
+      <li (click)="selectGenre(initial)">{{ initial.name}}</li>
+      <li *ngFor="let genre of genres" (click)="selectGenre(genre)">{{ genre.name }}</li>
+    </ul>
+  </div>
+</div>
