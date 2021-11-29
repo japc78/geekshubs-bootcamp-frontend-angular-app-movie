@@ -32,7 +32,6 @@ export class SelectGenresComponent implements OnInit {
       this.mediaService.getGenres(this.mediaType)
         .subscribe( items => {
           this.genres = items;
-          console.log('Generos', this.genres);
         });
     });
   }
@@ -43,7 +42,7 @@ export class SelectGenresComponent implements OnInit {
 
   selectGenre(genreId: number) {
     const queryParams: IQuery =  (genreId)
-      ? { with_genres: genreId } : {}
+      ? { with_genres: genreId } : { }
     this.router.navigate([], {
       queryParams
     });
