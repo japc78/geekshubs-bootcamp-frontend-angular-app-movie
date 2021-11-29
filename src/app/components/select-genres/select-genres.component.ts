@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MediaType } from '../../classes/Config';
 import { Genre } from '../../interfaces/Genre';
 import { IQuery } from '../../interfaces/Query';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-select-genres',
@@ -14,9 +15,9 @@ import { IQuery } from '../../interfaces/Query';
 export class SelectGenresComponent implements OnInit {
 
   private mediaType!: MediaType;
-
-  isGenres: boolean = false;
-
+  active: boolean = false;
+  initial: Genre = { id: 0, name: 'Todos los generos'}
+  selected: Genre = this.initial;
   genres: Genre[] = [];
 
   constructor(
@@ -29,23 +30,29 @@ export class SelectGenresComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => {
       this.mediaType = params.mediaType;
 
-      this.mediaService.getGenres(this.mediaType)
+      this.activatedRoute.queryParams.subscribe( queryParams => {
+        this.mediaService.getGenres(this.mediaType)
+
         .subscribe( items => {
+          const genreSelected = items.find(genre => genre.id === Number(queryParams.with_genres))
+          this.selected = genreSelected || this.initial;
           this.genres = items;
         });
+      })
     });
   }
 
   showGenres(): void {
-    this.isGenres = !this.isGenres;
+    this.active = !this.active;
   }
 
-  selectGenre(genreId: number) {
-    const queryParams: IQuery =  (genreId)
-      ? { with_genres: genreId } : { }
+  selectGenre(genre: Genre) {
+    const queryParams: IQuery =  (genre.id)
+      ? { with_genres: genre.id } : { }
+    this.selected = genre;
     this.router.navigate([], {
       queryParams
     });
-    this.isGenres = false;
+    this.active = false;
   }
 }
