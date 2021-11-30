@@ -9,6 +9,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { CastCardComponent } from './cast-card/cast-card.component';
 import { SelectGenresComponent } from './select-genres/select-genres.component';
+import { SortByComponent } from './sort-by/sort-by.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SelectGenresComponent } from './select-genres/select-genres.component';
     MediaCardComponent,
     CastCardComponent,
     SelectGenresComponent,
+    SortByComponent,
   ],
   exports: [
     SlideShowComponent,
@@ -24,6 +26,7 @@ import { SelectGenresComponent } from './select-genres/select-genres.component';
     CastCardComponent,
     MediaCardComponent,
     SelectGenresComponent,
+    SortByComponent,
   ],
   imports: [
     CommonModule,
