@@ -1,11 +1,8 @@
 <div class="sort-by">
-  <div class="selected" (click)="showOptions()"><span class="txt">Mejor Valoradas </span><span class="fi fi-rr-apps-sort"></span></div>
+  <div class="selected" (click)="showOptions()"><span class="txt">{{selected.name}} </span><span class="fi fi-rr-apps-sort"></span></div>
   <div class="sort-by-list basic" [ngClass]="{ 'active': active }">
     <ul>
-      <li>Mejor Valoradas</li>
-      <li>Más recientes</li>
-      <li>Más taquilleras</li>
-      <li>Más votadas</li>
+      <li *ngFor="let option of sortOptions" (click)="selectOption(option)">{{ option.name }}</li>
       <!-- <li (click)="selectOption(initial)">{{ initial.name}}</li>
       <li *ngFor="let genre of sortByList" (click)="selectOption(genre)">{{ genre.name }}</li> -->
     </ul>

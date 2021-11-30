@@ -18,7 +18,9 @@ export class MediaService {
 
   private commonQuery: IQuery = {
     api_key: Config.API_KEY,
-    language: Language.SPANISH
+    language: Language.SPANISH + '-' + Region.SPAIN,
+    certification_country: Region.SPAIN,
+    certification: 'R'
   }
 
 
@@ -78,7 +80,7 @@ export class MediaService {
     const url = `${Config.BASE_URL}discover/${mediaType}`
     return this.httpClient.get<MediaResponse>(url, { params })
       .pipe(
-        map( resp => resp.results.filter(item => item.poster_path))
+        map( resp => resp.results.filter(item => item.poster_path  && item.backdrop_path)),
       );
   }
 
