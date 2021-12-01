@@ -42,8 +42,7 @@ export class CatalogueComponent implements OnInit {
 
     if (scrollPosition > scrollHeight && !this.loading) {
       this.loading = true;
-      // console.log('Query 3: ', {...this.query, ...this.queryParams});
-
+      // console.log('Query 4: ', {...this.query, ...this.queryParams});
       this.getMoreItems();
     }
   }
@@ -73,6 +72,7 @@ export class CatalogueComponent implements OnInit {
                 this.getMoreItems();
               }
             })
+
           })
       })
     });
@@ -84,6 +84,8 @@ export class CatalogueComponent implements OnInit {
       setTimeout(() => {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+        // console.log('scrollHeight', scrollHeight);
+        // console.log('windowHeight', windowHeight);
         resolve((scrollHeight <= (windowHeight + 100) && this.items.length > 0 ) ? true : false)
       }, 300);
     });
@@ -97,7 +99,13 @@ export class CatalogueComponent implements OnInit {
         this.items.push(...items);
         this.currentPage +=1;
         this.query.page = this.currentPage;
-        this.loading = false;
+
+        if (this.items.length < 20) {
+          // console.log('Query 3: ', {...this.query, ...this.queryParams});
+          this.getMoreItems();
+        }
+
+        this.loading = false
       })
   }
 }
