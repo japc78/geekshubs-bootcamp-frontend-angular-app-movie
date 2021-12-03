@@ -4,6 +4,6 @@
   </div>
   <app-nav-bar></app-nav-bar>
   <div class="icons">
-    <span class="fi fi-rr-sun event" (click)="darkMode()"></span>
+    <span class="fi event" [ngClass]="{'fi-rr-sun': !isDarkMode, 'fi-rr-moon': isDarkMode}" (click)="darkMode()"></span>
   </div>
 </header>
