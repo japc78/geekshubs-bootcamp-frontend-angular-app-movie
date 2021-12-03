@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http'
-import { Observable, of } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { MediaResponse, Media } from '../interfaces/media';
@@ -53,7 +53,6 @@ export class MediaService {
   }
 
 
-
   getTrending(mediaType: MediaType, timeWindow: TimeWindow): Observable<MediaResponse> {
     const url = `${Config.BASE_URL}trending/${mediaType}/${timeWindow}`
     return this.httpClient.get<MediaResponse>(url,  { params: this.getParams(mediaType)});
@@ -86,10 +85,6 @@ export class MediaService {
 
 
   getCatalogue(mediaType: MediaType, filters?: IQuery): Observable<Media[]> {
-
-    // if (this.loading) return of([])
-
-    // this.loading = true;
     const query: IQuery = {
       ...this.commonQuery,
       ...filters,
@@ -107,11 +102,39 @@ export class MediaService {
   }
 
 
+  getLatest(): Observable<Media[]> {
+    const dateFrom = new Date();
+    const dateTo = new Date(new Date().setDate(dateFrom.getDate() + 7));
+
+    this.movieQuery = {
+      "primary_release_date.gte": dateFrom.toISOString().split('T')[0],
+      "primary_release_date.lte": dateTo.toISOString().split('T')[0],
+      sort_by: SortBy.popularity_desc
+    }
+
+    this.tvQuery = {
+      "first_air_date.gte": dateFrom.toISOString().split('T')[0],
+      "first_air_date.lte": dateTo.toISOString().split('T')[0],
+      sort_by: SortBy.popularity_desc
+    }
+
+    let items: Media[] = []
+    return forkJoin([
+      this.httpClient.get<MediaResponse>(`${Config.BASE_URL}discover/movie`, { params: this.getParams(MediaType.movie) }),
+      this.httpClient.get<MediaResponse>(`${Config.BASE_URL}discover/tv`, { params: this.getParams(MediaType.tv) })
+    ]).pipe(
+      map(resp => {
+        items.push(...resp[0].results.filter(item => item.poster_path  && item.backdrop_path).map(item => item = {...item, media_type: MediaType.movie}))
+        items.push(...resp[1].results.filter(item => item.poster_path  && item.backdrop_path).map(item => item = {...item, media_type: MediaType.tv}))
+        return items.sort((a,b) => a.popularity < b.popularity && 1 || -1 )
+      })
+    )
+  }
+
+
   getGenres(mediaType: MediaType): Observable<Genre[]> {
     const url = `${Config.BASE_URL}genre/${mediaType}/list`
     return this.httpClient.get<GenreResponse>(url, { params: this.getParams(mediaType)})
       .pipe(map(resp => resp.genres));
   }
-
-
 }
