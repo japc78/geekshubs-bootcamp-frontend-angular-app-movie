@@ -17,7 +17,7 @@
           <header>
             <div class="tags">
               <div class="tag type">{{item.media_type | mediaType | uppercase}}</div>
-              <div class="tag rating">IMDB {{item.vote_average}}/10</div>
+              <div *ngIf="item.vote_average" class="tag rating">IMDB {{item.vote_average}}/10</div>
             </div>
             <h2 class="name">{{item.title || item.name}}</h2>
           </header>
