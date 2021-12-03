@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import SwiperCore, { SwiperOptions, Navigation } from 'swiper';
 import { Config } from '../../classes/Config';
 import { Media } from '../../interfaces/media';
+import { Router } from '@angular/router';
 
 SwiperCore.use([Navigation]);
 
@@ -33,7 +34,7 @@ export class SlideShowComponent implements OnInit  {
     console.log('slide change');
   }
 
-  constructor() {
+  constructor(private router: Router) {
 
   }
 
@@ -48,5 +49,10 @@ export class SlideShowComponent implements OnInit  {
   // para mostrar un item diferente cada vez.
   private itemRandom(): number {
     return Math.floor(Math.random() * (this.items.length - 1))
+  }
+
+  onMoreInformationClick(media: Media) {
+    const mediaType = media.media_type;
+    this.router.navigate([mediaType, media.id])
   }
 }
