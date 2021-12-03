@@ -30,4 +30,8 @@ export class MediaCardComponent implements OnInit {
     const mediaType = media.media_type || this.activateRoute.snapshot.params.mediaType;
     this.router.navigate([mediaType, media.id])
   }
+
+  get voteAverage(): string {
+    return this.item.vote_average.toFixed(1);
+  }
 }

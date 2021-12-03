@@ -35,7 +35,7 @@ export class MediaComponent implements OnInit {
 
       this.movieService.getMedia(this.mediaType, this.id).subscribe( media => {
         this.media = media;
-        console.log(this.media);
+        // console.log(this.media);
       })
 
       this.movieService.getCredits(this.mediaType, this.id ).subscribe(credits => {
