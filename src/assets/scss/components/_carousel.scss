@@ -1,0 +1,116 @@
+
+.listCarousel {
+  display: flex;
+  flex-direction: column;
+  gap: unit(8);
+
+  @include medium {
+
+    padding: unit(4);
+  }
+}
+
+.carousel {
+  display: grid;
+  position: relative;
+  width: 100%;
+
+  &::nth-last-child() {
+    margin-bottom: 0;
+  }
+
+  [class*="swiper-button"] {
+    align-items: center;
+    background-color: rgba($white, .7);
+    color: $black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1em;
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .3s ease-in-out;
+    z-index: 9;
+
+    &::after {
+      font-family: $iconFamily;
+      text-shadow: 1px 2px 3px black;
+      transition: transform .3s ease-in-out;
+      @include font-size(20);
+    }
+
+    &:hover {
+      color:$color1;
+      &::after {
+        transform: scale(1.5);
+      }
+    }
+
+    &[class*="prev"] {
+      left: 0;
+      &::after {
+        content: "\f10e";
+        padding-right: unit(1);
+      }
+    }
+
+    &[class*="next"] {
+      right: 0;
+      &::after {
+        content: "\f10f"
+      }
+    }
+
+    &[class*="disabled"] {
+      opacity: 1;
+
+      &:hover {
+        color: $white;
+        opacity: .1;
+      }
+
+      &[class*="next"] {
+        right: -100px;
+      }
+
+      &[class*="prev"] {
+        left: -100px;
+      }
+    }
+
+    @include medium {
+      &::after {
+        @include font-size(32);
+      }
+    }
+  }
+
+
+  .swiper {
+    overflow: visible;
+  }
+
+  .swiper-wrapper {
+    // gap: unit(4);
+    align-items: stretch;
+    // overflow: auto;
+  }
+
+  .swiper-slide {
+    max-width: 100px;
+
+    @include medium() {
+      max-width: 125px;
+    }
+
+    @include medium() {
+      max-width: 150px;
+    }
+  }
+}

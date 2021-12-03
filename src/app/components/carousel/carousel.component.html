@@ -1,0 +1,11 @@
+<div class="carousel animate__animated animate__fadeIn animate__slow">
+  <div class="row">
+    <h2>{{title}}</h2>
+    <swiper [config]="config" effect="fade">
+      <ng-template *ngFor="let item of items" swiperSlide>
+        <app-media-card [item]="item"></app-media-card>
+      </ng-template>
+    </swiper>
+  </div>
+</div>
+

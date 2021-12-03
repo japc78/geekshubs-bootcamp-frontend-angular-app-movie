@@ -1,0 +1,9 @@
+<div class="media-card animate__animated animate__fadeIn animate__slow" (click)="onMediaClick(item)">
+  <div class="image">
+    <img src="{{imagePath}}{{item.poster_path}}" alt="{{item.title}}">
+  </div>
+  <div class="info">
+    <span *ngIf="item.media_type" class="type fi" [ngClass]="item.media_type === 'tv' ? 'fi-rr-screen': 'fi-rr-film'" title="{{item.media_type | mediaType}}"></span>
+    <span *ngIf="item.vote_average" class="tag rating" title="IMDB {{voteAverage}}/10">{{voteAverage}}</span>
+  </div>
+</div>

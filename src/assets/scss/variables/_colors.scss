@@ -1,0 +1,27 @@
+// Black and grey scale
+  $black: rgb(0, 0, 0);
+  $darkenGrey: lighten($black, 10%);
+  $darkGrey: lighten($black, 25%);
+  $grey: lighten($black, 60%);
+  $lightGrey: lighten($black, 90%);
+  $lighterGrey: lighten($black, 95%);
+$white: rgb(255, 255, 255);
+
+// Messages Info, Error
+  $msgInfoColor: #058eff;
+  $msgErrorColor: #b13636;
+  $msgWarningColor: #ff9a15;
+  $msgSuccessColor: #339c19;
+
+// General Colors
+  $color1: #e50914;
+  $color1dark: darken($color1, 5);
+  $color1darken: darken($color1, 20);
+  $color1light: lighten($color1, 15);
+  $color1lighter: lighten($color1, 25);
+
+  $color2: #ebedef;
+  $color2dark: darken($color1, 5);
+  $color2darken: darken($color1, 20);
+  $color2light: lighten($color1, 5);
+  $color2lighter: lighten($color1, 10);

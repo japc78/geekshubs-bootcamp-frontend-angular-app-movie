@@ -1,0 +1,44 @@
+.search {
+  overflow: visible;
+  form {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+
+    .box {
+      position: relative;
+
+      input {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  .suggestions {
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    top: unit(4);
+    padding-top: unit(6);
+
+    border-radius: 0 0 $borderRadius  $borderRadius;
+
+    background-color: $lighterGrey;
+
+    li {
+      padding: unit(2) unit(4);
+      cursor: pointer;
+
+      &:hover {
+        color: $color1;
+      }
+    }
+  }
+
+  .list {
+    padding-top: unit(4);
+  }
+}

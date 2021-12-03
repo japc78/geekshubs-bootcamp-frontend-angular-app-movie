@@ -1,0 +1,14 @@
+<app-slide-show [items]="items"></app-slide-show>
+<div class="container">
+  <section class="listCarousel">
+    <app-carousel
+      [items]="trendingMovieLastWeek"
+      title="Pelis, tendencia de la semana"
+    ></app-carousel>
+
+    <app-carousel
+      [items]="trendingTvLastWeek"
+      title="Tv, tendencia de la semana"
+    ></app-carousel>
+  </section>
+</div>

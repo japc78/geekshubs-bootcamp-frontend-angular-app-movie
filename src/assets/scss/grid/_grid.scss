@@ -1,0 +1,41 @@
+
+@import "./grid-mixins";
+
+.container {
+  width: 100%;
+  padding: unit(4);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  min-width: $layoutMinWith;
+}
+
+.row {
+  display: grid;
+  justify-self: center;
+  align-content: start;
+  margin: 0 auto;
+
+  &.col2 {
+    @include col(2);
+  }
+
+  &.col3 {
+    @include col(3);
+  }
+
+  &.col4 {
+    @include col(4);
+  }
+
+  &.col5 {
+    @include col(5);
+  }
+
+  &.col6 {
+    @include col(6);
+  }
+
+  &.autoCol {
+    @include autoCol;
+  }
+}

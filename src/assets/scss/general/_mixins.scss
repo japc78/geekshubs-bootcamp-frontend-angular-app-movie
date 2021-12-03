@@ -1,0 +1,7 @@
+// Font size
+@use "sass:math";
+
+@mixin font-size($fontSize: $baseFontSize) {
+  font-size: #{$fontSize}px;
+  font-size: #{math.div($fontSize, 10)}rem;
+}

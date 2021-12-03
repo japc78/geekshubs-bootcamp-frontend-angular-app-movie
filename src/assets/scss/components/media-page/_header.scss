@@ -1,0 +1,75 @@
+header {
+  position: relative;
+
+  padding-left: 30%;
+
+  .info {
+    left: 0;
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    width: 75%;
+    background: linear-gradient(
+      90deg,
+      rgba($white,1) 50%,
+      rgba($white,0) 100%,
+      rgba($black,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 unit(4);
+    line-height: 1em;
+
+    .name {
+      @include font-size(24);
+      font-weight: bold;
+      text-transform: capitalize;
+      color: $black;
+      margin-bottom: 0;
+      line-height: 1em;
+      // text-shadow: 1px 1px 1px rgba($black,.75);
+    }
+
+    .rating {
+      font-style: italic;
+      color: $color1;
+      @include font-size(12);
+    }
+
+    .year {
+      margin-bottom: unit(1);
+      @include font-size(14);
+    }
+
+    @include small() {
+      width: 60%;
+      .name {
+        @include font-size(36);
+      }
+    }
+
+    @include medium() {
+      gap: unit(1);
+      width: 60%;
+      padding: 0 unit(10);
+      .name {
+        @include font-size(48);
+      }
+    }
+
+    @include large() {
+      .name {
+        width: 90%;
+        @include font-size(80);
+      }
+    }
+  }
+
+  @include large() {
+    .image {
+      max-height: 600px;
+      overflow: hidden;
+    }
+  }
+}

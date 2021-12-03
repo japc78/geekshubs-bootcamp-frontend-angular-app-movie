@@ -1,0 +1,15 @@
+<div class="catalogue container animate__animated animate__fadeIn">
+  <div class="row filters">
+    <div class="item">
+      <app-select-genres></app-select-genres>
+    </div>
+    <div class="item">
+      <app-sort-by></app-sort-by>
+    </div>
+  </div>
+  <ng-template ngIf="items.length > 0">
+    <div class="row list">
+      <app-media-card *ngFor="let item of items" [item]="item"></app-media-card>
+    </div>
+  </ng-template>
+</div>

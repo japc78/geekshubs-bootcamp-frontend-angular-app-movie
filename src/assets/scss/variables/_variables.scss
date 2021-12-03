@@ -1,0 +1,60 @@
+// General
+  $bodyColor            : $white;
+  $textColor            : $darkGrey;
+  $textBoldColor        : $color1;
+  $baseColor            : $color1;
+  $borderColor          : lighten($baseColor, 60%);
+  $borderRadius         : 7px;
+
+  $baseFont             : 'Roboto', sans-serif;
+  $condensedFont        : 'Roboto Condensed', sans-serif;
+  $baseFontSize         : 16;
+  $baseLineHeight       : 1.2em;
+  $baseFontWeight       : normal;
+
+// Margenes
+  $blockSpace           : .5rem;
+  $generalMargin        : $blockSpace * 2;
+  $generalMarginBottom  : $generalMargin * 2;
+  $generalPadding       : $blockSpace;
+  $generalPaddingDouble : $generalPadding *2;
+
+// Scroll
+  $scrollbar-with       : 5px;
+
+// Grid
+  $layoutMinWith        : 360px;
+  $gap                  : $generalPadding*2;
+  $minWithAutoCol       : 180px;
+
+// NavBar
+  $navBarBgColor: #2F495E;
+  $navBarColor: $white;
+  $navBarHeight: 90px;
+  $navBarHeightLarge: 70px;
+
+// Icon
+  $iconSize: 24;
+
+// Typography
+  $h1FontWeight: 300;
+  $h1FontStyle: normal;
+  $h1FontSize: 1.8em;
+  $h1FontColor: $color1;
+  $h2FontWeight: 300;
+  $h2FontStyle: normal;
+  $h2FontSize: 1.6em;
+  $h2FontColor: $color1;
+  $h3FontWeight: bold;
+  $h3FontStyle: normal;
+  $h3FontSize: 1.3em;
+  $h3FontColor: $black;
+  $h4FontWeight: bold;
+  $h4FontStyle: normal;
+  $h4FontSize: 1.2em;
+  $h5FontWeight: bold;
+  $h5FontStyle: normal;
+  $h5FontSize: 1.1em;
+  $h6FontWeight: bold;
+  $h6FontStyle: normal;
+  $h6FontSize: 1em;

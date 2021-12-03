@@ -1,0 +1,85 @@
+.main-menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  min-width: $layoutMinWith;
+  height: $navBarHeight;
+  // TODO THEME
+  background-color: $white;
+  // border-top: 1px solid $lightGrey;
+  box-shadow: 1px -3px 10px rgba(black,.2);
+
+
+  @include medium() {
+    background-color: transparent;
+    height: 100%;
+    position: relative;
+    min-width: auto;
+    padding-right: $generalPaddingDouble;
+    box-shadow: none;
+  }
+
+  ul {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    @include medium() {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: $gap;
+    }
+
+    li {
+      a {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        gap: $gap;
+        color: $black;
+        transition: all .3s ease-in-out;
+
+        .txt {
+          font-size: .85em;
+          font-family: $condensedFont;
+          font-weight: 700;
+        }
+
+        &.active, &:hover {
+          color: $color1dark;
+        }
+      }
+
+      @include medium() {
+        a {
+          .txt {
+            font-size: 1em;
+          }
+        }
+
+        .fi {
+          display: none;
+        }
+
+        &:last-child {
+          align-self: center;
+          margin-left: auto;
+
+          .fi {
+            display: flex;
+          }
+
+          .txt {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

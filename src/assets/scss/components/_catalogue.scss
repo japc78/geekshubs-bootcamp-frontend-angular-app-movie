@@ -1,0 +1,7 @@
+.catalogue {
+  .row {
+    @include small() {
+      padding: unit(4);
+    }
+  }
+}

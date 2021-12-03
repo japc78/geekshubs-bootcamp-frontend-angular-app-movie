@@ -1,0 +1,39 @@
+.main-header {
+  height: $navBarHeight;
+  padding: unit(4);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 0;
+  z-index: 999;
+
+
+  @include medium() {
+    position: sticky;
+    height: $navBarHeightLarge;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-content: center;
+    padding: unit(6);
+    background-color: rgba($white, .95);
+  }
+
+  .logo{
+    overflow:hidden;
+    max-width: 125px;
+    margin-right: unit(8);
+
+    @include medium() {
+      // max-width: none;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .icons {
+    display: flex;
+    // gap: $gap;
+  }
+}

@@ -1,0 +1,17 @@
+.list {
+
+  @include autoCol(100px);
+
+  @include small() {
+    @include autoCol(125px);
+  }
+  @include medium() {
+    @include autoCol(150px);
+    gap: unit(4);
+  }
+
+  @include large() {
+    @include autoCol(175px);
+    gap: unit(4);
+  }
+}
