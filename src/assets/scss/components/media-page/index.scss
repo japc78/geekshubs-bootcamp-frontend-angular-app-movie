@@ -6,6 +6,7 @@
   @include medium() {
     .similar {
       padding: unit(4) unit(10);
+      margin-bottom: $generalMarginBottom;
     }
   }
 }
