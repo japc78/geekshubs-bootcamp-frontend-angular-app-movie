@@ -1,0 +1,28 @@
+.error404 {
+  padding: unit(4) unit(8);
+  height: calc(100vh - #{$navBarHeight * 2});
+
+  .row {
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  @include small {
+    padding: unit(10);
+
+    .row {
+      height: 100%;
+    };
+
+    .image {
+      max-width: 800px;
+    }
+
+  }
+}
