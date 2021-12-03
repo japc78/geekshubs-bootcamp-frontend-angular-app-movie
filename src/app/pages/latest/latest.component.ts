@@ -22,7 +22,7 @@ export class LatestComponent implements OnInit {
   ngOnInit(): void {
     this.mediaService.getLatest().subscribe(resp => {
       this.items = resp;
-      console.log(resp)
+      // console.log(resp)
     })
   }
 }

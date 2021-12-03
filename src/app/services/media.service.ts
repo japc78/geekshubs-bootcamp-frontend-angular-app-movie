@@ -118,27 +118,15 @@ export class MediaService {
       sort_by: SortBy.popularity_desc
     }
 
-    console.log(dateFrom)
-    console.log(dateTo)
-    console.log(this.movieQuery)
-
-    // console.log(dateFrom.toISOString().split('T')[0]);
-    // console.log(date.toISOString().split('T')[0]);
-    // console.log(today.toISOString().split('T')[0]);
-    // console.log(today.setDate(today.getDate() + 10).valueOf());
-    // console.log(new Date(today.setDate(today.getDate() + 10).valueOf()));
-
     let items: Media[] = []
     return forkJoin([
       this.httpClient.get<MediaResponse>(`${Config.BASE_URL}discover/movie`, { params: this.getParams(MediaType.movie) }),
       this.httpClient.get<MediaResponse>(`${Config.BASE_URL}discover/tv`, { params: this.getParams(MediaType.tv) })
     ]).pipe(
       map(resp => {
-        console.log(resp);
-
         items.push(...resp[0].results.filter(item => item.poster_path  && item.backdrop_path).map(item => item = {...item, media_type: MediaType.movie}))
         items.push(...resp[1].results.filter(item => item.poster_path  && item.backdrop_path).map(item => item = {...item, media_type: MediaType.tv}))
-        return items.sort(() => Math.random() - 0.5)
+        return items.sort((a,b) => a.popularity < b.popularity && 1 || -1 )
       })
     )
   }
