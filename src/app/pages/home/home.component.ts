@@ -130,7 +130,7 @@ export class HomeComponent implements OnInit {
                 item.trailer = (resp.results.length > 0) ? resp.results[0].key : null;
               });
           });
-          return items;
+          return items.sort(() => Math.random() - 0.5);
         })
       );
   }
