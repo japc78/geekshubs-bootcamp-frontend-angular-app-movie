@@ -85,9 +85,15 @@
     }
   }
 
+
+  .swiper {
+    overflow: visible;
+  }
+
   .swiper-wrapper {
     // gap: unit(4);
     align-items: stretch;
+    // overflow: auto;
   }
 
   .swiper-slide {
