@@ -25,11 +25,16 @@
     color: $black;
     cursor: pointer;
     display: flex;
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     line-height: 1em;
-    padding: 0 unit(3);
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
     position: absolute;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     transition: all .3s ease-in-out;
     z-index: 9;
 
@@ -50,7 +55,8 @@
     &[class*="prev"] {
       left: 0;
       &::after {
-        content: "\f10e"
+        content: "\f10e";
+        padding-right: unit(1);
       }
     }
 
