@@ -1,5 +1,8 @@
 <div class="genres">
-  <span class="selected" (click)="showGenres()">{{selected.name}}</span>
+  <div class="selected" (click)="showGenres()">
+    <span class="fi fi-rr-filter"></span>
+    <span class="txt">{{selected.name}} </span>
+  </div>
   <div class="genre-list" [ngClass]="{ 'active': active }">
     <ul>
       <li (click)="selectGenre(initial)">{{ initial.name}}</li>

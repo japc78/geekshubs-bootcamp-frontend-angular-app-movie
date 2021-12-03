@@ -1,7 +1,10 @@
 <div class="catalogue container">
-  <div class="row">
+  <div class="row filters">
     <div class="item">
       <app-select-genres></app-select-genres>
+    </div>
+    <div class="item">
+      <app-sort-by></app-sort-by>
     </div>
   </div>
   <ng-template ngIf="items.length > 0">

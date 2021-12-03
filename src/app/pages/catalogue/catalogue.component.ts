@@ -42,8 +42,7 @@ export class CatalogueComponent implements OnInit {
 
     if (scrollPosition > scrollHeight && !this.loading) {
       this.loading = true;
-      console.log('Query 3: ', {...this.query, ...this.queryParams});
-
+      // console.log('Query 4: ', {...this.query, ...this.queryParams});
       this.getMoreItems();
     }
   }
@@ -58,7 +57,7 @@ export class CatalogueComponent implements OnInit {
         this.queryParams = queryParams;
         this.currentPage = 1;
         this.query.page = this.currentPage;
-        console.log('Query 1: ', {...this.query, ...this.queryParams});
+        // console.log('Query 1: ', {...this.query, ...this.queryParams});
 
         this.mediaService.getCatalogue(this.mediaType, {...this.query, ...queryParams })
           .subscribe( items => {
@@ -69,10 +68,11 @@ export class CatalogueComponent implements OnInit {
             // Carga mas items si la lista no tiene scroll
             this.isNotScroll().then( resp =>  {
               if (resp) {
-                console.log('Query 2: ', {...this.query, ...this.queryParams});
+                // console.log('Query 2: ', {...this.query, ...this.queryParams});
                 this.getMoreItems();
               }
             })
+
           })
       })
     });
@@ -84,6 +84,8 @@ export class CatalogueComponent implements OnInit {
       setTimeout(() => {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+        // console.log('scrollHeight', scrollHeight);
+        // console.log('windowHeight', windowHeight);
         resolve((scrollHeight <= (windowHeight + 100) && this.items.length > 0 ) ? true : false)
       }, 300);
     });
@@ -97,7 +99,13 @@ export class CatalogueComponent implements OnInit {
         this.items.push(...items);
         this.currentPage +=1;
         this.query.page = this.currentPage;
-        this.loading = false;
+
+        if (this.items.length < 20) {
+          // console.log('Query 3: ', {...this.query, ...this.queryParams});
+          this.getMoreItems();
+        }
+
+        this.loading = false
       })
   }
 }

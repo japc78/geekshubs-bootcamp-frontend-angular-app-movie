@@ -4,7 +4,7 @@ import { Config, SortBy, Language, Region } from '../classes/Config';
 // para declarar las keys. De cara a pasar los valores con HttpParams
 export interface IQuery {
   "api_key"?: Config.API_KEY;
-  "language"?: Language;
+  "language"?: string;
   "sort_by"?: string;
   "vote_count.gte"?: number;
   "vote_count.lte"?: number;
@@ -12,6 +12,9 @@ export interface IQuery {
   "vote_average.lte"?: number;
   "with_genres"?: number;
   "page"?: number;
+  "watch_region"?: Region;
+  "certification_country"?: Region,
+  "certification"?: string;
 }
 
 export interface QueryMovie extends IQuery {

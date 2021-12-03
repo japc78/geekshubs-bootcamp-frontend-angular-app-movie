@@ -47,8 +47,11 @@ export class SelectGenresComponent implements OnInit {
   }
 
   selectGenre(genre: Genre) {
+
+    const currentQueryParams = this.activatedRoute.snapshot.queryParams;
+
     const queryParams: IQuery =  (genre.id)
-      ? { with_genres: genre.id } : { }
+      ? {...currentQueryParams, with_genres: genre.id } : { }
     this.selected = genre;
     this.router.navigate([], {
       queryParams

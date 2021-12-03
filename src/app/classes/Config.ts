@@ -28,8 +28,9 @@ export enum SortBy {
   vote_count_asc = 'vote_count.asc',
   vote_count_desc = 'vote_count.desc',
   primary_release_date_asc = 'primary_release_date.asc',
-  primary_release_date_desc = 'primary_release_date.desc'
-
+  primary_release_date_desc = 'primary_release_date.desc',
+  revenue_desc = 'revenue.desc',
+  tv_first_air_date_desc = 'first_air_date.desc',
 }
 
 export enum Language {

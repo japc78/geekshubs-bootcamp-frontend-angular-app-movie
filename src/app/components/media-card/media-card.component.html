@@ -4,6 +4,6 @@
   </div>
   <div class="info">
     <span *ngIf="item.media_type" class="type fi" [ngClass]="item.media_type === 'tv' ? 'fi-rr-screen': 'fi-rr-film'" title="{{item.media_type | mediaType}}"></span>
-    <span class="tag rating" title="IMDB {{item.vote_average}}/10">{{item.vote_average}}</span>
+    <span *ngIf="item.vote_average" class="tag rating" title="IMDB {{item.vote_average}}/10">{{item.vote_average}}</span>
   </div>
 </div>
