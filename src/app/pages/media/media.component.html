@@ -6,8 +6,12 @@
     <div class="info">
       <div class="rating">IMDB {{ media.vote_average }}</div>
       <h1 class="name">{{ media.title || media.name }}</h1>
-      <div class="year">
+      <div *ngIf="media.release_date" class="year">
         <span>{{ year(media.release_date) }}</span> - <span> {{ media.runtime }} min</span>
+      </div>
+
+      <div *ngIf="media.first_air_date">
+        <span>{{year(media.first_air_date)}} - {{tvType}}</span>
       </div>
       <div class="btn play"><i class="fi fi-rr-play"></i> Ver trailer</div>
     </div>
@@ -15,6 +19,10 @@
 
   <div class="details container">
     <h2>Detalles</h2>
+
+    <div *ngIf="media.number_of_seasons">
+      <small>Temporadas: {{media.number_of_seasons}} - Episodios: {{media.number_of_episodes}}</small>
+    </div>
 
     <small class="original-name">{{ media.original_title || media.original_name }}</small>
     <ng-container *ngIf="getGenres">

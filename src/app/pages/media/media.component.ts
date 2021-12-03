@@ -67,6 +67,10 @@ export class MediaComponent implements OnInit {
     return this.similar;
   }
 
+  get tvType(): string {
+    return (this.media.type === 'Scripted') ? 'Serie' : this.media.type;
+  }
+
   public year(release_date: Date): number  {
     return new Date(release_date).getFullYear();
   }
