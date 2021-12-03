@@ -4,9 +4,12 @@
   bottom: 0;
   width: 100%;
   min-width: $layoutMinWith;
-  height: 70px;
+  height: $navBarHeight;
   // TODO THEME
   background-color: $white;
+  // border-top: 1px solid $lightGrey;
+  box-shadow: 1px -3px 10px rgba(black,.2);
+
 
   @include medium() {
     background-color: transparent;
@@ -14,6 +17,7 @@
     position: relative;
     min-width: auto;
     padding-right: $generalPaddingDouble;
+    box-shadow: none;
   }
 
   ul {
@@ -38,11 +42,17 @@
         text-align: center;
         text-decoration: none;
         gap: $gap;
+        color: $black;
+        transition: all .3s ease-in-out;
 
         .txt {
           font-size: .85em;
           font-family: $condensedFont;
           font-weight: 700;
+        }
+
+        &.active, &:hover {
+          color: $color1dark;
         }
       }
 

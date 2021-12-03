@@ -25,7 +25,7 @@ body {
   line-height: $baseLineHeight;
   color: $textColor;
   cursor: default;
-  padding-bottom: 70px;
+  padding-bottom: calc(#{$navBarHeight} + #{unit(4)});
 
   @include medium() {
     padding-bottom: 0;
