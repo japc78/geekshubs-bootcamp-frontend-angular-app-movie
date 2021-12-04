@@ -21,8 +21,6 @@
 
   [class*="swiper-button"] {
     align-items: center;
-    background-color: rgba($white, .7);
-    color: $black;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -38,6 +36,11 @@
     transition: all .3s ease-in-out;
     z-index: 9;
 
+    @include theme {
+      background-color: rgba(theme-get('bgContrast'), .7);
+      color: $black;
+    }
+
     &::after {
       font-family: $iconFamily;
       text-shadow: 1px 2px 3px black;
@@ -46,9 +49,11 @@
     }
 
     &:hover {
-      color:$color1;
-      &::after {
-        transform: scale(1.5);
+      transform: translateY(-50%) scale(1.5);
+
+      @include theme {
+        background-color: rgba(theme-get('btnHoverBg'), .7);
+        color: theme-get('btnHoverText');
       }
     }
 
@@ -76,11 +81,11 @@
       }
 
       &[class*="next"] {
-        right: -100px;
+        right: -200px;
       }
 
       &[class*="prev"] {
-        left: -100px;
+        left: -200px;
       }
     }
 
