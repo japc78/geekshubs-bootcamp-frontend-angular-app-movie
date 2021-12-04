@@ -10,18 +10,20 @@
     right: unit(4);
     left: auto;
     cursor: pointer;
-    color: $white;
     transition: all .3s ease-in-out;
     transform: scale(1);
 
+    @include theme {
+      color: theme-get('textWithRedBg');
+    }
+
     &:hover {
-      color:$black;
-      transform: scale(1.5);
+      transform: scale(1.8);
     }
 
     &::after {
       font-family: $iconFamily;
-      text-shadow: 1px 2px 3px black;
+      text-shadow: 1px 1px 2px black;
       @include font-size(20);
     }
 
@@ -88,7 +90,7 @@
         justify-content: center;
         width: 50%;
         padding: unit(8);
-        background: linear-gradient(270deg, rgba($white,0) 0%, rgba($black,.8)  100%);
+        background: linear-gradient(270deg, rgba($white,0) 0%, rgba($black,1)  100%);
       }
 
       @include large() {
@@ -172,19 +174,23 @@
     .info {
       display: grid;
       grid-template-rows: auto 1fr min-content;
-      color: $black;
       z-index: 999;
       padding: unit(4);
-      background-color: $color1dark;
 
-      background: linear-gradient(0deg, $color1 0%, $color1darken 100%);
+      @include theme {
+        background: theme-get('slideShowInfoBg');
+      }
+
 
       .name {
         @include font-size(24);
         font-weight: bold;
         font-family: $condensedFont;
         text-transform: uppercase;
-        color: $white;
+
+        @include theme {
+          color: theme-get('textWithRedBg');
+        }
         line-height: 1.2em;
       }
 
@@ -195,19 +201,26 @@
 
       .tag {
         // background-color: rgba($white, .5);
-        border: 1px dashed rgba($white, .5);
         border-radius: $borderRadius;
         padding: unit(.5) unit(1);
         margin-bottom: unit(1);
         display: inline-block;
         @include font-size(12);
         font-style: italic;
-        color: rgba($white, .5)
+
+        @include theme {
+          border: 1px dashed rgba(theme-get('textWithRedBg'), .7);
+          color: rgba(theme-get('textWithRedBg'), .7)
+        }
+
       }
 
       .overview {
-        color: $white;
         margin-bottom: $generalMargin;
+
+        @include theme {
+          color: theme-get('textWithRedBg');
+        }
 
         @include medium() {
           margin-bottom: $generalMarginBottom;
@@ -217,6 +230,7 @@
       ul {
         padding: $generalPaddingDouble * 2;
         @include font-size(14);
+
         background-color: $lighterGrey;
         margin-bottom: $generalMarginBottom;
         border-radius: $borderRadius;
@@ -232,21 +246,30 @@
         gap: $generalPaddingDouble;
 
         .btn {
-          border-color: $white;
-          background-color: rgba($black, .1);
-          color: $white;
+
+          @include theme {
+            border-color: theme-get('textWithRedBg');
+            color: theme-get('textWithRedBg');
+          }
+
+          // background-color: rgba($black, .1);
           display: flex;
           align-items: center;
           gap: unit(2);
-          box-shadow: 1px 1px 3px rgba(black,.8);
+
+          // box-shadow: 1px 1px 3px rgba(black,.8);
 
           .fi {
             @include font-size(18);
           }
 
           &:hover {
-            border-color: $color1darken;
-            background-color: rgba($color1,.8);
+            @include theme {
+              border-color: theme-get('bgContrast');
+              color: theme-get('text');
+              background-color: theme-get('bg');
+            }
+
           }
         }
 
@@ -261,10 +284,40 @@
         }
       }
 
-
       @include medium() {
         padding: unit(4) 0 0 0;
-        background: none;
+
+        @include theme {
+          background: transparent;
+        }
+
+        .name, .overview {
+          @include theme {
+            color: theme-get('textWithImageBg');
+          }
+        }
+
+        .tag {
+          @include theme {
+            border: 1px dashed rgba(theme-get('textWithImageBg'), .7);
+            color: rgba(theme-get('textWithImageBg'), .7)
+          }
+        }
+
+        .action .btn {
+          @include theme {
+            border-color: theme-get('textWithImageBg');
+            color: theme-get('textWithImageBg');
+          }
+
+          &:hover {
+            @include theme {
+              border-color: theme-get('btnHoverText');
+              color: theme-get('btnHoverText');
+              background-color: theme-get('btnHoverBg');
+            }
+          }
+        }
       }
     }
   }

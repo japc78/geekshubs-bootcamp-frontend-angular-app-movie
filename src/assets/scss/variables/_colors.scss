@@ -8,8 +8,8 @@
   $white: rgb(255, 255, 255);
 
 // General Colors
-  $color1: #e50914;
-  $color1dark: darken($color1, 5);
+  $color1: hsl(357, 92%, 45%);
+  $color1dark: darken($color1, 10);
   $color1darken: darken($color1, 20);
   $color1light: lighten($color1, 15);
   $color1lighter: lighten($color1, 25);
@@ -23,6 +23,7 @@
   $dark-text-1: hsl(212, 8%, 70%);
   $dark-text-2: hsl(0, 0%, 87%);
 
+
 // Light mode base colors
   $light-1: hsl(0, 0%, 100%);
   $light-2: hsl(0, 0%, 97%);
@@ -31,3 +32,4 @@
 
   $light-text-1: hsl(0, 0%, 0%);
   $light-text-2: hsl(0, 0%, 20%);
+
