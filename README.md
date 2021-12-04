@@ -31,9 +31,9 @@ Este proyecto de ha desarrollado siguiendo la metodología `Git Flow`.
 - [Responsive Web Design](https://developer.mozilla.org/es/docs/Glossary/Responsive_web_design)
 - [Mobile first](https://developer.mozilla.org/es/docs/Glossary/Mobile_First)
 - [Animate.style](https://animate.style/)
+- Dark Mode
 - [Git](https://git-scm.com/)
 - [Git flow](https://danielkummer.github.io/git-flow-cheatsheet/index.es_ES.html)
-
 
 ## Herramientas 🔧
 

@@ -7,6 +7,9 @@
   top: 0;
   z-index: 999;
 
+  @include theme {
+    background-color: theme-get('bg');
+  }
 
   @include medium() {
     position: sticky;
@@ -34,6 +37,20 @@
 
   .icons {
     display: flex;
+
+    @include theme {
+      color: theme-get('text');
+    }
+
+    .fi {
+      transition: all .3s ease-in-out;
+      &:hover  {
+        @include theme {
+          color: theme-get('hover');
+        }
+      }
+    }
+
     // gap: $gap;
   }
 }

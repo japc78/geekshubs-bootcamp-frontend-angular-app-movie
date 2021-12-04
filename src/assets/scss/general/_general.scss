@@ -23,12 +23,28 @@ body {
   @include font-size($baseFontSize);
   font-weight: $baseFontWeight;
   line-height: $baseLineHeight;
-  color: $textColor;
   cursor: default;
-  padding-bottom: calc(#{$navBarHeight} + #{unit(4)});
+}
+
+.main {
+  padding-bottom: $navBarHeight;
+  min-height: 100vh;
 
   @include medium() {
     padding-bottom: 0;
+  }
+
+  &.darkTheme {
+    background: $dark-1;
+  }
+  &.lightTheme {
+    background: $light-2;
+  }
+}
+
+.container {
+  @include theme {
+    background-color: theme-get('bg');
   }
 }
 
