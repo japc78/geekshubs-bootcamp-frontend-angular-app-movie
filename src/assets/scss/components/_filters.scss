@@ -32,9 +32,7 @@
 
   .selected {
     // border:1px solid red;
-    background-color: $lighterGrey;
     padding: unit(3) unit(4);
-    border-radius: $borderRadius;
     min-width: 30%;
     cursor: pointer;
     display: flex;
@@ -44,6 +42,12 @@
     @include font-size(18);
     font-weight: bold;
     transition: all .3s ease-in-out;
+
+    border-radius: $borderRadius;
+    @include theme {
+      background-color: theme-get('bgContrast');
+      color: theme-get('textHighContrast');
+    }
 
 
     .txt {
@@ -56,8 +60,10 @@
     }
 
     &:hover {
-      background-color: $color1dark;
-      color:$white;
+      @include theme {
+        background-color: theme-get('btnHoverBg');
+        color: theme-get('btnHoverText');
+      }
     }
   }
 
@@ -81,8 +87,12 @@
     ul {
       padding: unit(2) unit(4);
       display: grid;
-      background-color: rgba($lightGrey, .95);
       border-radius: $borderRadius;
+
+      @include theme {
+        background-color: rgba(theme-get('bgContrast'), .95);
+        color: theme-get('textHighContrast');
+      }
 
       li {
         @include font-size(18);
@@ -91,8 +101,10 @@
         border-radius: $borderRadius;
         cursor: pointer;
         &:hover{
-          background-color: rgba($color1dark, .8);
-          color: $white;
+          @include theme {
+            background-color: rgba(theme-get('btnHoverBg'), .8);
+            color: theme-get('btnHoverText');
+          }
         }
       }
     }
