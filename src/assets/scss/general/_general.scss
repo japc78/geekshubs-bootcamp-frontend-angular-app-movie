@@ -28,9 +28,17 @@ body {
 
 .main {
   padding-bottom: $navBarHeight;
+  min-height: 100vh;
 
   @include medium() {
     padding-bottom: 0;
+  }
+
+  &.darkTheme {
+    background: $dark-1;
+  }
+  &.lightTheme {
+    background: $light-2;
   }
 }
 
