@@ -5,13 +5,7 @@
   $grey: lighten($black, 60%);
   $lightGrey: lighten($black, 90%);
   $lighterGrey: lighten($black, 95%);
-$white: rgb(255, 255, 255);
-
-// Messages Info, Error
-  $msgInfoColor: #058eff;
-  $msgErrorColor: #b13636;
-  $msgWarningColor: #ff9a15;
-  $msgSuccessColor: #339c19;
+  $white: rgb(255, 255, 255);
 
 // General Colors
   $color1: #e50914;
@@ -20,8 +14,20 @@ $white: rgb(255, 255, 255);
   $color1light: lighten($color1, 15);
   $color1lighter: lighten($color1, 25);
 
-  $color2: #ebedef;
-  $color2dark: darken($color1, 5);
-  $color2darken: darken($color1, 20);
-  $color2light: lighten($color1, 5);
-  $color2lighter: lighten($color1, 10);
+// Dark mode base colors
+  $dark-1: hsl(229, 23%, 10%);
+  $dark-2: hsl(229, 22%, 19%);
+  $dark-3: hsl(229, 20%, 21%);
+  $dark-4: hsl(229, 20%, 23%);
+
+  $dark-text-1: hsl(212, 8%, 70%);
+  $dark-text-2: hsl(0, 0%, 87%);
+
+// Light mode base colors
+  $light-1: hsl(0, 0%, 100%);
+  $light-2: hsl(0, 0%, 97%);
+  $light-3: hsl(0, 0%, 93%);
+  $light-4: hsl(0, 0%, 91%);
+
+  $light-text-1: hsl(0, 0%, 0%);
+  $light-text-2: hsl(0, 0%, 20%);

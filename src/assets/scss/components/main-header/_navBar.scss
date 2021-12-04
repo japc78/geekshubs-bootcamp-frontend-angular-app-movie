@@ -6,7 +6,9 @@
   min-width: $layoutMinWith;
   height: $navBarHeight;
   // TODO THEME
-  background-color: $white;
+  @include theme {
+    background-color: theme-get('bg');
+  }
   // border-top: 1px solid $lightGrey;
   box-shadow: 1px -3px 10px rgba(black,.2);
 
@@ -42,8 +44,11 @@
         text-align: center;
         text-decoration: none;
         gap: $gap;
-        color: $black;
         transition: all .3s ease-in-out;
+
+        @include theme {
+          color: theme-get('text');
+        }
 
         .txt {
           font-size: .85em;

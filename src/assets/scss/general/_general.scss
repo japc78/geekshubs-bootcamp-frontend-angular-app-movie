@@ -23,12 +23,20 @@ body {
   @include font-size($baseFontSize);
   font-weight: $baseFontWeight;
   line-height: $baseLineHeight;
-  color: $textColor;
   cursor: default;
-  padding-bottom: calc(#{$navBarHeight} + #{unit(4)});
+}
+
+.main {
+  padding-bottom: $navBarHeight;
 
   @include medium() {
     padding-bottom: 0;
+  }
+}
+
+.container {
+  @include theme {
+    background-color: theme-get('bg');
   }
 }
 

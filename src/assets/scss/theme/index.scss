@@ -1,0 +1,22 @@
+@use "sass:map";
+@import "./light";
+@import "./dark";
+
+$themes: (
+  lightTheme: $light,
+  darkTheme: $dark,
+);
+
+@mixin theme() {
+  @each $theme, $map in $themes {
+    $theme-map: $map !global;
+    .#{$theme} & {
+      @content;
+    }
+  }
+  $theme-map: null !global;
+}
+
+@function theme-get($key) {
+  @return map-get($theme-map, $key);
+}
