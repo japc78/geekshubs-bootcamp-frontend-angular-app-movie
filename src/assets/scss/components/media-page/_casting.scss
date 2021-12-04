@@ -1,4 +1,15 @@
 .casting {
+  margin-bottom: $generalMarginBottom;
+
+  h3 {
+    @include theme {
+      color: theme-get('text');
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
   .row {
     @include autoCol(100px);
     gap: unit(3);
@@ -33,7 +44,9 @@
     padding: unit(1);
     display: flex;
     flex-direction: column;
-    background-color: $lightGrey;
+    @include theme {
+      background-color: theme-get('bgContrast');
+    }
     overflow: hidden;
 
     .name {

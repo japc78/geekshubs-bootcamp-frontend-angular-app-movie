@@ -23,6 +23,12 @@
   $dark-text-1: hsl(212, 8%, 70%);
   $dark-text-2: hsl(0, 0%, 87%);
 
+  $dark-gradient-1: linear-gradient(
+    90deg,
+    rgba($black,1) 50%,
+    rgba($black,0) 70%,
+    rgba($black,0) 100%);
+
 
 // Light mode base colors
   $light-1: hsl(0, 0%, 100%);
@@ -32,4 +38,10 @@
 
   $light-text-1: hsl(0, 0%, 0%);
   $light-text-2: hsl(0, 0%, 20%);
+
+  $light-gradient-1: linear-gradient(
+    90deg,
+    rgba($white,1) 50%,
+    rgba($white,0) 100%,
+    rgba($black,0) 100%);
 

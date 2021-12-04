@@ -1,6 +1,5 @@
 header {
   position: relative;
-
   padding-left: 30%;
 
   .info {
@@ -9,11 +8,10 @@ header {
     top: 0%;
     height: 100%;
     width: 75%;
-    background: linear-gradient(
-      90deg,
-      rgba($white,1) 50%,
-      rgba($white,0) 100%,
-      rgba($black,0) 100%);
+
+    @include theme {
+      background: theme-get('gradient1');
+    }
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +23,10 @@ header {
       @include font-size(24);
       font-weight: bold;
       text-transform: capitalize;
-      color: $black;
+
+      @include theme {
+        color: theme-get('text');
+      }
       margin-bottom: 0;
       line-height: 1em;
       // text-shadow: 1px 1px 1px rgba($black,.75);
@@ -33,13 +34,19 @@ header {
 
     .rating {
       font-style: italic;
-      color: $color1;
+      @include theme {
+        color: theme-get('text');
+      }
       @include font-size(12);
     }
 
     .year {
       margin-bottom: unit(1);
       @include font-size(14);
+
+      @include theme {
+        color: theme-get('text');
+      }
     }
 
     @include small() {
