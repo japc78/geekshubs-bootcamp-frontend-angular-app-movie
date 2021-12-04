@@ -7,17 +7,21 @@
   input {
     width: 100%;
     border: 0;
-    padding: unit(2) unit(4);
+    padding: unit(3) unit(4);
     border-radius: $borderRadius * 3;
     font-family: $condensedFont;
-    background-color: $lighterGrey;
     transition: box-shadow .3s ease-in-out;
     margin-bottom: 0;
+    @include font-size(18);
+
+    @include theme {
+      background-color: theme-get('bgContrast');
+      color: theme-get('textHighContrast');
+    }
 
     &:focus {
       outline: none;
       border: 0;
-      box-shadow: 0px 0px 5px rgba($color1, .7);
     }
   }
 
